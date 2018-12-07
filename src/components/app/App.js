@@ -11,7 +11,11 @@ const App = ({ children }) => {
           <Link to='/'>Perque</Link>
         </h1>
       </header>
-      {children}
+      <section className="content">
+        {children}
+      </section>
+      <footer>
+      </footer>
     </main>
   )
 }

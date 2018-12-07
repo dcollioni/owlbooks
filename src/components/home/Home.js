@@ -9,7 +9,7 @@ const Home = ({ user }) => (
 )
 
 Home.propTypes = {
-  user: PropTypes.object.isRequired
+  user: PropTypes.object
 }
 
 export default Home

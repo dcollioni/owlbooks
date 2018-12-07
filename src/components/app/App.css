@@ -1,0 +1,20 @@
+main > header {
+  background-color: #232838;
+}
+main > header h1 {
+  display: inline-block;
+  font-size: 22px;
+  margin: 0;
+  padding: 20px;
+}
+main > header h1 a {
+  color: #f6f6f6;
+  text-decoration: none;
+}
+main > section.content {
+  padding: 20px;
+}
+main > section.content h2 {
+  font-size: 20px;
+  margin: 0;
+}
