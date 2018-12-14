@@ -1,3 +1,28 @@
+#home > .perque-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+}
+#home > .perque-list li {
+  background-color: #c6ff00;
+  color: #303030;
+  display: inline-block;
+  position: relative;
+  height: 150px;
+  text-align: center;
+}
+#home > .perque-list li h3 {
+  color: #303030;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+}
 .home-menu ul {
   list-style: none;
   margin: 0;

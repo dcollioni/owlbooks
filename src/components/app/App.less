@@ -1,6 +1,9 @@
+@import "./../../_default.less";
+
 main {
   > header {
-    background-color: #232838;
+    background-color: @color-background-light;
+    border-bottom: 1px solid @color-background-dark;
 
     h1 {
       display: inline-block;
@@ -9,7 +12,7 @@ main {
       padding: 20px;
 
       a {
-        color: #f6f6f6;
+        color: @color-primary-dark;
         text-decoration: none;
       }
     }
