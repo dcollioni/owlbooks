@@ -1,3 +1,6 @@
+#quiz > header {
+  position: relative;
+}
 #quiz > header h2,
 #quiz > header h3 {
   margin: 0;
@@ -5,6 +8,23 @@
 #quiz > header h3 {
   font-weight: normal;
   font-size: 14px;
+}
+#quiz > header .answer-quiz {
+  background-color: #9c27b0;
+  border-radius: 30px;
+  color: #fbfbfb;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px 20px;
+  position: absolute;
+  text-transform: uppercase;
+  top: 0;
+  right: 0;
+  text-decoration: none;
+  transition: all .2s;
+}
+#quiz > header .answer-quiz:hover {
+  background-color: #6a0080;
 }
 #quiz > .questions ul {
   list-style: none;

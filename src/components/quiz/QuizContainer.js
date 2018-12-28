@@ -7,17 +7,25 @@ class QuizContainer extends Component {
     super(props)
 
     this.state = {
-      id: '1', name: 'Q1', questions: [
-        { order: 1, description: 'Qual sua cor preferida?', answers: 25 },
-        { order: 2, description: 'Qual seu time?', answers: 18 },
-        { order: 3, description: 'Qual seu signo?', answers: 14 },
-        { order: 4, description: 'Qual seu maior defeito?', answers: 10 }
-      ]
+      id: '',
+      name: '',
+      questions: []
     }
   }
 
   componentDidMount () {
     const { id } = this.props.match.params
+
+    this.setState(() => ({
+      id,
+      name: 'Q1',
+      questions: [
+        { order: 1, description: 'Qual sua cor preferida?', answers: 25 },
+        { order: 2, description: 'Qual seu time?', answers: 18 },
+        { order: 3, description: 'Qual seu signo?', answers: 14 },
+        { order: 4, description: 'Qual seu maior defeito?', answers: 10 }
+      ]
+    }))
   }
 
   render () {

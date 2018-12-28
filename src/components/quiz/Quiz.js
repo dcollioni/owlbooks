@@ -8,6 +8,7 @@ const Quiz = ({ id, name, questions }) => (
     <header>
       <h2>{name}</h2>
       <h3>Questionário</h3>
+      <Link to={`/q/${id}/answer`} className='answer-quiz'>Responder questionário</Link>
     </header>
     <div className='questions'>
       <ul>
