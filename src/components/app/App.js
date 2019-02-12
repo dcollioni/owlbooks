@@ -8,7 +8,7 @@ const App = ({ children }) => {
     <main className='app'>
       <header className='app-header'>
         <h1 className='app-title'>
-          <Link to='/'>Perque</Link>
+          <Link to='/'>React App Template</Link>
         </h1>
       </header>
       <section className="content">
