@@ -1,12 +1,15 @@
 main > header {
   background-color: #fbfbfb;
-  border-bottom: 1px solid #e6e6e6;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 main > header h1 {
+  background: url('/images/owl_grey.png') 20px center no-repeat;
+  background-size: 40px;
   display: inline-block;
   font-size: 22px;
   margin: 0;
   padding: 20px;
+  padding-left: 70px;
 }
 main > header h1 a {
   color: #6a0080;
