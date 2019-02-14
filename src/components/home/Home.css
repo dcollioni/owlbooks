@@ -1,29 +1,61 @@
-.home-menu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  width: 300px;
+#home .list {
+  margin: 20px 0;
 }
-.home-menu ul li {
-  margin: 15px 0;
+#home .list .item {
+  background: #fbfbfb;
+  border-radius: 2px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  display: grid;
+  font-size: 14px;
+  grid-template-columns: 4fr 1fr;
+  margin-bottom: 6px;
+  padding: 10px;
 }
-.home-menu ul li a {
-  background: #eee;
-  border-radius: 3px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  color: #333;
-  display: block;
-  padding: 12px 20px;
-  text-decoration: none;
+#home .list .item span {
+  margin: 0 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.home-menu ul li a:hover {
-  background: #e5e5e5;
+#home .list .item span:nth-child(1) {
+  order: 1;
 }
-.home-menu ul li a:active {
-  background: #ddd;
+#home .list .item span:nth-child(2) {
+  order: 3;
 }
-.home-menu ul li a svg {
-  float: left;
-  margin-top: -3px;
-  margin-right: 20px;
+#home .list .item span:nth-child(3) {
+  order: 2;
+  text-align: right;
+}
+#home .list .item span:nth-child(4) {
+  order: 4;
+  text-align: right;
+}
+#home .list .item .right {
+  margin-left: 5px;
+  text-align: right;
+}
+@media screen and (min-width: 375px) {
+  #home .list .item {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1366px) {
+  #home .list .item {
+    font-size: 18px;
+    grid-template-columns: 4fr 4fr 2fr 1fr;
+  }
+  #home .list .item span:nth-child(1) {
+    order: 1;
+  }
+  #home .list .item span:nth-child(2) {
+    order: 2;
+  }
+  #home .list .item span:nth-child(3) {
+    order: 3;
+    text-align: left;
+  }
+  #home .list .item span:nth-child(4) {
+    order: 4;
+  }
 }
