@@ -4,7 +4,7 @@ import './Home.css'
 const Home = () => (
   <div id='home'>
     <header>
-      <h2>Home</h2>
+      <h2>My books</h2>
     </header>
   </div>
 )

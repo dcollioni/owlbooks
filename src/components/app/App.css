@@ -4,21 +4,33 @@ main > header {
 }
 main > header h1 {
   background: url('/images/owl_grey.png') 20px center no-repeat;
-  background-size: 40px;
+  background-size: 30px;
   display: inline-block;
-  font-size: 22px;
+  font-size: 20px;
   margin: 0;
   padding: 20px;
-  padding-left: 70px;
+  padding-left: 60px;
 }
 main > header h1 a {
   color: #6a0080;
   text-decoration: none;
 }
+@media screen and (min-width: 375px) {
+  main > header h1 {
+    background-size: 35px;
+    font-size: 22px;
+    padding-left: 65px;
+  }
+}
 main > section.content {
   padding: 20px;
 }
 main > section.content h2 {
-  font-size: 20px;
+  font-size: 18px;
   margin: 0;
+}
+@media screen and (min-width: 375px) {
+  main > section.content h2 {
+    font-size: 20px;
+  }
 }
