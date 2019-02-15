@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Home.css'
 
 const Home = () => (
@@ -7,19 +8,20 @@ const Home = () => (
       <h2>My books</h2>
     </header>
     <div className='list'>
-      <div className='item'>
+      <Link className='item' to=''>
         <span>Harry Potter e a Pedra Filosofal</span>
         <span>JK Rowling</span>
         <span>Ficção</span>
         <span>240</span>
-      </div>
-      <div className='item'>
+      </Link>
+      <Link className='item' to=''>
         <span>Fortaleza Digital</span>
         <span>Dan Brown</span>
         <span>Ficção</span>
         <span>520</span>
-      </div>
+      </Link>
     </div>
+    <Link className='floating-button add' to='/' title='Add book' />
   </div>
 )
 

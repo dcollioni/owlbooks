@@ -1,15 +1,27 @@
+#home {
+  min-height: calc(100vh - 130px);
+}
 #home .list {
   margin: 20px 0;
 }
 #home .list .item {
   background: #fbfbfb;
   border-radius: 2px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  color: #303030;
   display: grid;
   font-size: 14px;
   grid-template-columns: 4fr 1fr;
   margin-bottom: 6px;
   padding: 10px;
+  text-decoration: none;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all .2s;
+}
+#home .list .item:hover {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+}
+#home .list .item:active {
+  background: #ffffff;
 }
 #home .list .item span {
   margin: 0 3px;
@@ -31,18 +43,14 @@
   order: 4;
   text-align: right;
 }
-#home .list .item .right {
-  margin-left: 5px;
-  text-align: right;
-}
 @media screen and (min-width: 375px) {
   #home .list .item {
     font-size: 16px;
   }
 }
-@media screen and (min-width: 1366px) {
+@media screen and (min-width: 1280px) {
   #home .list .item {
-    font-size: 18px;
+    font-size: 17px;
     grid-template-columns: 4fr 4fr 2fr 1fr;
   }
   #home .list .item span:nth-child(1) {
@@ -57,5 +65,40 @@
   }
   #home .list .item span:nth-child(4) {
     order: 4;
+  }
+}
+#home .floating-button {
+  background: #9c27b0 center no-repeat;
+  background-size: 25px;
+  border-radius: 30px;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 30px;
+  width: 50px;
+  height: 50px;
+  transition: all .2s;
+}
+#home .floating-button.add {
+  background-image: url('/images/ic_add_white.png');
+}
+#home .floating-button:hover {
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.6);
+}
+#home .floating-button:active {
+  background-color: #6a0080;
+}
+@media screen and (min-width: 375px) {
+  #home .floating-button {
+    background-size: 30px;
+    width: 60px;
+    height: 60px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #home .floating-button {
+    margin: 30px 50px;
   }
 }

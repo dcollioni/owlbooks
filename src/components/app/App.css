@@ -1,6 +1,9 @@
+main {
+  min-width: 300px;
+}
 main > header {
   background-color: #fbfbfb;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
 }
 main > header h1 {
   background: url('/images/owl_grey.png') 20px center no-repeat;
@@ -22,8 +25,22 @@ main > header h1 a {
     padding-left: 65px;
   }
 }
+@media screen and (min-width: 1280px) {
+  main > header h1 {
+    background-position-x: 40px;
+    padding: 20px 40px;
+    padding-left: 85px;
+  }
+}
 main > section.content {
+  max-width: 1520px;
+  margin: auto;
   padding: 20px;
+}
+@media screen and (min-width: 1280px) {
+  main > section.content {
+    padding: 20px 40px;
+  }
 }
 main > section.content h2 {
   font-size: 18px;
