@@ -2,7 +2,6 @@
   margin: 20px 0;
 }
 .book-list .book-list-item {
-  background: #fbfbfb;
   background: #ffffff;
   border-radius: 2px;
   color: #303030;
@@ -19,8 +18,7 @@
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
 }
 .book-list .book-list-item:active {
-  background: #ffffff;
-  background: #fbfbfb;
+  background: #f6f6f6;
 }
 .book-list .book-list-item span {
   margin: 0 3px;
