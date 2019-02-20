@@ -1,27 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Home.css'
+import BookListContainer from './../bookList/BookListContainer'
 // import { ReactComponent as AddIcon } from './../../svg/ic_add.svg'
 
-const Home = () => (
+const Home = ({ books }) => (
   <div id='home'>
     <header>
       <h2>My books</h2>
     </header>
-    <div className='list'>
-      <Link className='item' to=''>
-        <span>Harry Potter e a Pedra Filosofal</span>
-        <span>JK Rowling</span>
-        <span>Ficção</span>
-        <span>240</span>
-      </Link>
-      <Link className='item' to=''>
-        <span>Fortaleza Digital</span>
-        <span>Dan Brown</span>
-        <span>Ficção</span>
-        <span>520</span>
-      </Link>
-    </div>
+    <BookListContainer books={books} />
     <Link className='floating-button add' to='/' title='Add book' />
   </div>
 )

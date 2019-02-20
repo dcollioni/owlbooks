@@ -1,0 +1,66 @@
+.book-list {
+  margin: 20px 0;
+}
+.book-list .book-list-item {
+  background: #fbfbfb;
+  border-radius: 2px;
+  color: #303030;
+  display: grid;
+  font-size: 13px;
+  grid-template-columns: 4fr 1fr;
+  margin-bottom: 6px;
+  padding: 10px;
+  text-decoration: none;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all .2s;
+}
+.book-list .book-list-item:hover {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+}
+.book-list .book-list-item:active {
+  background: #ffffff;
+}
+.book-list .book-list-item span {
+  margin: 0 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.book-list .book-list-item span:nth-child(1) {
+  order: 1;
+}
+.book-list .book-list-item span:nth-child(2) {
+  order: 3;
+}
+.book-list .book-list-item span:nth-child(3) {
+  order: 2;
+  text-align: right;
+}
+.book-list .book-list-item span:nth-child(4) {
+  order: 4;
+  text-align: right;
+}
+@media screen and (min-width: 375px) {
+  .book-list .book-list-item {
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .book-list .book-list-item {
+    font-size: 17px;
+    grid-template-columns: 4fr 4fr 2fr 1fr;
+  }
+  .book-list .book-list-item span:nth-child(1) {
+    order: 1;
+  }
+  .book-list .book-list-item span:nth-child(2) {
+    order: 2;
+  }
+  .book-list .book-list-item span:nth-child(3) {
+    order: 3;
+    text-align: left;
+  }
+  .book-list .book-list-item span:nth-child(4) {
+    order: 4;
+  }
+}
