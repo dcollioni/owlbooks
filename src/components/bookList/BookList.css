@@ -3,6 +3,7 @@
 }
 .book-list .book-list-item {
   background: #fbfbfb;
+  background: #ffffff;
   border-radius: 2px;
   color: #303030;
   display: grid;
@@ -19,6 +20,7 @@
 }
 .book-list .book-list-item:active {
   background: #ffffff;
+  background: #fbfbfb;
 }
 .book-list .book-list-item span {
   margin: 0 3px;
@@ -31,6 +33,7 @@
 }
 .book-list .book-list-item span:nth-child(2) {
   order: 3;
+  color: #888888;
 }
 .book-list .book-list-item span:nth-child(3) {
   order: 2;
@@ -39,6 +42,7 @@
 .book-list .book-list-item span:nth-child(4) {
   order: 4;
   text-align: right;
+  color: #888888;
 }
 @media screen and (min-width: 375px) {
   .book-list .book-list-item {
@@ -55,6 +59,7 @@
   }
   .book-list .book-list-item span:nth-child(2) {
     order: 2;
+    color: inherit;
   }
   .book-list .book-list-item span:nth-child(3) {
     order: 3;
@@ -62,5 +67,6 @@
   }
   .book-list .book-list-item span:nth-child(4) {
     order: 4;
+    color: inherit;
   }
 }
