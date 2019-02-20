@@ -11,7 +11,7 @@ main {
       background: url('/images/owl_grey.png') 20px center no-repeat;
       background-size: 30px;
       display: inline-block;
-      font-size: 20px;
+      font-size: 18px;
       margin: 0;
       padding: 20px;
       padding-left: 60px;
@@ -23,12 +23,13 @@ main {
 
       @media screen and (min-width: @phone-width) {
         background-size: 35px;
-        font-size: 22px;
+        font-size: 20px;
         padding-left: 65px;
       }
 
       @media screen and (min-width: @desktop-width) {
         background-position-x: 40px;
+        font-size: 22px;
         padding: 20px 40px;
         padding-left: 85px;
       }
@@ -45,10 +46,14 @@ main {
     }
 
     h2 {
-      font-size: 18px;
+      font-size: 16px;
       margin: 0;
 
       @media screen and (min-width: @phone-width) {
+        font-size: 18px;
+      }
+
+      @media screen and (min-width: @desktop-width) {
         font-size: 20px;
       }
     }

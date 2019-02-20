@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Home.css'
+// import { ReactComponent as AddIcon } from './../../svg/ic_add.svg'
 
 const Home = () => (
   <div id='home'>
