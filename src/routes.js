@@ -10,8 +10,9 @@ import {
 
 import { store, persistor } from './store'
 
-import AppContainer from './components/app/AppContainer'
-import HomeContainer from './components/home/HomeContainer'
+import AppContainer from './pages/app/AppContainer'
+import BookListContainer from './pages/bookList/BookListContainer'
+import BookFormContainer from './pages/bookForm/BookFormContainer'
 
 const routes = (
   <Provider store={store}>
@@ -20,7 +21,8 @@ const routes = (
         <AppContainer>
           <Switch>
             {/* <Route path='/login' component={LoginContainer} exact /> */}
-            <Route path='/' component={HomeContainer} exact />
+            <Route path='/' component={BookListContainer} exact />
+            <Route path='/books/:id' component={BookFormContainer} exact />
             {/* <AuthorizedRoute path='/' component={HomeContainer} exact /> */}
             { /* fallback, should be the last entry */}
             <Redirect from='*' to='/' />
