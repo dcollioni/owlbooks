@@ -7,12 +7,23 @@ import { withRouter } from 'react-router-dom'
 class BookFormContainer extends Component {
   constructor (props) {
     super(props)
-    this.state = {}
+
+    this.state = {
+      pageTitle: ''
+    }
+  }
+
+  componentDidMount () {
+    const { R, match: { params: { id } } } = this.props
+
+    this.setState(() => ({
+      pageTitle: (id === 'new') ? R.strings.addNewBook : R.strings.editBook
+    }))
   }
 
   render () {
     return (
-      <BookForm {...this.props} />
+      <BookForm {...this.props} {...this.state} />
     )
   }
 }

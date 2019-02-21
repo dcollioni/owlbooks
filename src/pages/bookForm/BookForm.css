@@ -1,3 +1,10 @@
 #book-form form {
+  display: grid;
   margin: 20px 0;
+}
+#book-form form label {
+  font-size: 13px;
+}
+#book-form form label span {
+  display: block;
 }

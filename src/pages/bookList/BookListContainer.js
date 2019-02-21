@@ -14,7 +14,7 @@ class BookListContainer extends Component {
         subject: 'Ficção',
         length: 584,
         publisher: '',
-        ISBN: '',
+        isbn: '',
         publicationDate: new Date()
       }, {
         id: '2',
@@ -23,7 +23,7 @@ class BookListContainer extends Component {
         subject: 'Ficção',
         length: 320,
         publisher: '',
-        ISBN: '',
+        isbn: '',
         publicationDate: new Date()
       }, {
         id: '3',
@@ -32,7 +32,7 @@ class BookListContainer extends Component {
         subject: 'Ficção',
         length: 691,
         publisher: '',
-        ISBN: '',
+        isbn: '',
         publicationDate: new Date()
       }, {
         id: '4',
@@ -41,7 +41,7 @@ class BookListContainer extends Component {
         subject: 'Romance',
         length: 367,
         publisher: '',
-        ISBN: '',
+        isbn: '',
         publicationDate: new Date()
       }]
     }
