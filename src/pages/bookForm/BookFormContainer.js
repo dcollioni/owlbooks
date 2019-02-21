@@ -1,23 +1,28 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import BookForm from './BookForm'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 class BookFormContainer extends Component {
   constructor (props) {
     super(props)
-
     this.state = {}
   }
 
   render () {
     return (
-      <BookForm />
+      <BookForm {...this.props} />
     )
   }
 }
 
 BookFormContainer.propTypes = {
-  user: PropTypes.object
+  R: PropTypes.object.isRequired
 }
 
-export default BookFormContainer
+const stateToProps = ({ R }) => ({
+  R
+})
+
+export default withRouter(connect(stateToProps)(BookFormContainer))

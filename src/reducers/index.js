@@ -1,16 +1,26 @@
+import strings from './../resources/strings.json'
+
 import {
   LOGIN,
-  LOGOUT
+  LOGOUT,
+  LOAD_RESOURCES
 } from './../actions'
 
 import { REHYDRATE } from 'redux-persist'
 
 const initialState = {
+  R: { strings },
   user: null
 }
 
 function reducer (state = initialState, action) {
   switch (action.type) {
+    case LOAD_RESOURCES:
+      return {
+        ...state,
+        R: action.resources
+      }
+
     case LOGIN:
       return {
         ...state,

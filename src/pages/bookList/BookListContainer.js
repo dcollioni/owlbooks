@@ -11,26 +11,38 @@ class BookListContainer extends Component {
         id: '1',
         title: 'A Guerra dos Tronos',
         author: 'RR Martin',
-        category: 'Ficção',
-        pages: 584
+        subject: 'Ficção',
+        length: 584,
+        publisher: '',
+        ISBN: '',
+        publicationDate: new Date()
       }, {
         id: '2',
         title: 'Harry Potter e a Pedra Filosofal',
         author: 'JK Rowling',
-        category: 'Ficção',
-        pages: 320
+        subject: 'Ficção',
+        length: 320,
+        publisher: '',
+        ISBN: '',
+        publicationDate: new Date()
       }, {
         id: '3',
         title: 'O Código Da Vinci',
         author: 'Dan Brown',
-        category: 'Ficção',
-        pages: 691
+        subject: 'Ficção',
+        length: 691,
+        publisher: '',
+        ISBN: '',
+        publicationDate: new Date()
       }, {
         id: '4',
         title: 'O Livro dos Títulos',
         author: 'Pedro Cardoso',
-        category: 'Romance',
-        pages: 367
+        subject: 'Romance',
+        length: 367,
+        publisher: '',
+        ISBN: '',
+        publicationDate: new Date()
       }]
     }
   }

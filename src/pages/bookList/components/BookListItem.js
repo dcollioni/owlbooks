@@ -6,8 +6,8 @@ const BookListItem = ({ book }) => (
   <Link className='book-list-item' to={`/books/${book.id}`}>
     <span>{book.title}</span>
     <span>{book.author}</span>
-    <span>{book.category}</span>
-    <span>{book.pages}</span>
+    <span>{book.subject}</span>
+    <span>{book.length}</span>
   </Link>
 )
 
