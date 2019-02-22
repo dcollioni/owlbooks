@@ -10,7 +10,7 @@ const BookForm = ({ R, pageTitle }) => (
     <form method='post' action='/'>
       <label>
         <span>{R.strings.title}</span>
-        <input type='text' name='title' />
+        <input type='text' name='title' autoFocus />
       </label>
       <label>
         <span>{R.strings.author}</span>
@@ -18,15 +18,22 @@ const BookForm = ({ R, pageTitle }) => (
       </label>
       <label>
         <span>{R.strings.subject}</span>
-        <input type='text' name='subject' />
+        <input type='text' name='subject' list='subjectList' />
+        <datalist id='subjectList'>
+          <option value='Ação e Aventura' />
+          <option value='Biografia' />
+          <option value='Ficção' />
+          <option value='Romance' />
+          <option value='Terror' />
+        </datalist>
       </label>
       <label>
         <span>{R.strings.length}</span>
-        <input type='text' name='length' />
+        <input type='number' min={0} name='length' />
       </label>
       <label>
-        <span>{R.strings.publisher}</span>
-        <input type='text' name='publisher' />
+        <span>{R.strings.publicationYear}</span>
+        <input type='number' max={9999} name='publicationYear' />
       </label>
       <label>
         <span>{R.strings.publisher}</span>
@@ -36,10 +43,9 @@ const BookForm = ({ R, pageTitle }) => (
         <span>{R.strings.isbn}</span>
         <input type='text' name='isbn' />
       </label>
-      <label>
-        <span>{R.strings.publicationDate}</span>
-        <input type='text' name='publicationDate' />
-      </label>
+      <div>
+        <button type='submit'>{R.strings.saveBook}</button>
+      </div>
     </form>
   </div>
 )

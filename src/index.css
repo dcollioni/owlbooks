@@ -8,7 +8,8 @@ body {
 body,
 input,
 textarea,
-select {
+select,
+button {
   color: #303030;
   font-family: 'Signika Negative', sans-serif;
 }

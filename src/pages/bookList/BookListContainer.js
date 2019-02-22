@@ -15,7 +15,7 @@ class BookListContainer extends Component {
         length: 584,
         publisher: '',
         isbn: '',
-        publicationDate: new Date()
+        publicationYear: null
       }, {
         id: '2',
         title: 'Harry Potter e a Pedra Filosofal',
@@ -24,7 +24,7 @@ class BookListContainer extends Component {
         length: 320,
         publisher: '',
         isbn: '',
-        publicationDate: new Date()
+        publicationYear: null
       }, {
         id: '3',
         title: 'O Código Da Vinci',
@@ -33,7 +33,7 @@ class BookListContainer extends Component {
         length: 691,
         publisher: '',
         isbn: '',
-        publicationDate: new Date()
+        publicationYear: null
       }, {
         id: '4',
         title: 'O Livro dos Títulos',
@@ -42,7 +42,7 @@ class BookListContainer extends Component {
         length: 367,
         publisher: '',
         isbn: '',
-        publicationDate: new Date()
+        publicationYear: null
       }]
     }
   }

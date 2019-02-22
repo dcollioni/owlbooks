@@ -5,7 +5,8 @@
   "length": "Length",
   "publisher": "Publisher",
   "isbn": "ISBN",
-  "publicationDate": "Publication date",
+  "publicationYear": "Publication year",
   "addNewBook": "Add new book",
-  "editBook": "Edit book"
+  "editBook": "Edit book",
+  "saveBook": "Save book"
 }
