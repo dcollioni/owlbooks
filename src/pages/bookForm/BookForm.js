@@ -1,48 +1,67 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './BookForm.css'
+import TextFieldContainer from './components/TextFieldContainer'
 
-const BookForm = ({ R, pageTitle }) => (
+const BookForm = ({ R, pageTitle, title, author, subject, length, publicationYear, publisher, isbn, onChange, onSubmit }) => (
   <div id='book-form'>
     <header>
       <h2>{pageTitle}</h2>
     </header>
-    <form method='post' action='/'>
-      <label>
-        <span>{R.strings.title}</span>
-        <input type='text' name='title' autoFocus />
-      </label>
-      <label>
-        <span>{R.strings.author}</span>
-        <input type='text' name='author' />
-      </label>
-      <label>
-        <span>{R.strings.subject}</span>
-        <input type='text' name='subject' list='subjectList' />
-        <datalist id='subjectList'>
-          <option value='Ação e Aventura' />
-          <option value='Biografia' />
-          <option value='Ficção' />
-          <option value='Romance' />
-          <option value='Terror' />
-        </datalist>
-      </label>
-      <label>
-        <span>{R.strings.length}</span>
-        <input type='number' min={0} name='length' />
-      </label>
-      <label>
-        <span>{R.strings.publicationYear}</span>
-        <input type='number' max={9999} name='publicationYear' />
-      </label>
-      <label>
-        <span>{R.strings.publisher}</span>
-        <input type='text' name='publisher' />
-      </label>
-      <label>
-        <span>{R.strings.isbn}</span>
-        <input type='text' name='isbn' />
-      </label>
+    <form method='post' action='/' onSubmit={onSubmit}>
+      <TextFieldContainer
+        label={R.strings.title}
+        name='title'
+        value={title}
+        onChange={onChange} autoFocus />
+
+      <TextFieldContainer
+        label={R.strings.author}
+        name='author'
+        value={author}
+        onChange={onChange} />
+
+      <TextFieldContainer
+        label={R.strings.subject}
+        name='subject'
+        value={subject}
+        onChange={onChange}
+        dataListItems={[
+          'Ação e Aventura',
+          'Biografia',
+          'Ficção',
+          'Romance',
+          'Terror'
+        ]} />
+
+      <TextFieldContainer
+        label={R.strings.length}
+        name='length'
+        value={length}
+        onChange={onChange}
+        type='number'
+        min={0} />
+
+      <TextFieldContainer
+        label={R.strings.publicationYear}
+        name='publicationYear'
+        value={publicationYear}
+        onChange={onChange}
+        type='number'
+        max={9999} />
+
+      <TextFieldContainer
+        label={R.strings.publisher}
+        name='publisher'
+        value={publisher}
+        onChange={onChange} />
+
+      <TextFieldContainer
+        label={R.strings.isbn}
+        name='isbn'
+        value={isbn}
+        onChange={onChange} />
+
       <div>
         <button type='submit'>{R.strings.saveBook}</button>
       </div>
@@ -51,6 +70,17 @@ const BookForm = ({ R, pageTitle }) => (
 )
 
 BookForm.propTypes = {
+  R: PropTypes.object.isRequired,
+  pageTitle: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  subject: PropTypes.string.isRequired,
+  length: PropTypes.string.isRequired,
+  publicationYear: PropTypes.string.isRequired,
+  publisher: PropTypes.string.isRequired,
+  isbn: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
 }
 
 export default BookForm

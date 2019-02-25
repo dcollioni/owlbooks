@@ -12,37 +12,37 @@ class BookListContainer extends Component {
         title: 'A Guerra dos Tronos',
         author: 'RR Martin',
         subject: 'Ficção',
-        length: 584,
+        length: '584',
         publisher: '',
         isbn: '',
-        publicationYear: null
+        publicationYear: ''
       }, {
         id: '2',
         title: 'Harry Potter e a Pedra Filosofal',
         author: 'JK Rowling',
         subject: 'Ficção',
-        length: 320,
+        length: '320',
         publisher: '',
         isbn: '',
-        publicationYear: null
+        publicationYear: ''
       }, {
         id: '3',
         title: 'O Código Da Vinci',
         author: 'Dan Brown',
         subject: 'Ficção',
-        length: 691,
+        length: '691',
         publisher: '',
         isbn: '',
-        publicationYear: null
+        publicationYear: ''
       }, {
         id: '4',
         title: 'O Livro dos Títulos',
         author: 'Pedro Cardoso',
         subject: 'Romance',
-        length: 367,
+        length: '367',
         publisher: '',
         isbn: '',
-        publicationYear: null
+        publicationYear: ''
       }]
     }
   }
