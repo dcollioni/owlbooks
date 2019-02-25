@@ -27,11 +27,11 @@ const BookForm = ({ R, pageTitle, title, author, subject, length, publicationYea
         value={subject}
         onChange={onChange}
         dataListItems={[
-          'Ação e Aventura',
-          'Biografia',
-          'Ficção',
-          'Romance',
-          'Terror'
+          R.strings.actionAndAdventure,
+          R.strings.biography,
+          R.strings.fiction,
+          R.strings.romance,
+          R.strings.terror
         ]} />
 
       <TextFieldContainer

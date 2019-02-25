@@ -8,5 +8,10 @@
   "publicationYear": "Publication year",
   "addNewBook": "Add new book",
   "editBook": "Edit book",
-  "saveBook": "Save book"
+  "saveBook": "Save book",
+  "actionAndAdventure": "Ação e Aventura",
+  "biography": "Biografia",
+  "fiction": "Ficção",
+  "romance": "Romance",
+  "terror": "Terror"
 }
