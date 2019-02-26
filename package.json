@@ -17,28 +17,14 @@
     "redux-persist-transform-encrypt": "^2.0.1",
     "redux-thunk": "^2.3.0"
   },
-  "proxy": "http://localhost:3001/",
   "scripts": {
     "prestart": "npm run build",
     "start": "node server.js",
+    "client": "cd client && npm run start",
+    "build": "cd client && npm run build",
     "server": "nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "client": "cd client && react-scripts start",
-    "build": "cd client && react-scripts build",
-    "test": "cd client && react-scripts test",
-    "eject": "cd client && react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "devDependencies": {
     "concurrently": "^4.1.0",
     "gh-pages": "^2.0.1"
