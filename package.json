@@ -2,8 +2,9 @@
   "name": "owlbooks",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://dcollioni.github.io/owlbooks",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -16,11 +17,16 @@
     "redux-persist-transform-encrypt": "^2.0.1",
     "redux-thunk": "^2.3.0"
   },
+  "proxy": "http://localhost:3001/",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "prestart": "npm run build",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "client": "cd client && react-scripts start",
+    "build": "cd client && react-scripts build",
+    "test": "cd client && react-scripts test",
+    "eject": "cd client && react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
@@ -34,6 +40,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "concurrently": "^4.1.0",
     "gh-pages": "^2.0.1"
   }
 }

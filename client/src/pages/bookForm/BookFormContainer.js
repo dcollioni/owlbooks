@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import BookForm from './BookForm'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
+const { fetch } = window
 
 class BookFormContainer extends Component {
   constructor (props) {
@@ -12,6 +13,7 @@ class BookFormContainer extends Component {
     const book = state && state.book
 
     this.state = {
+      notFound: false,
       pageTitle: (id === 'new') ? R.strings.addNewBook : R.strings.editBook,
       id: (id !== 'new') ? id : '',
       title: (book && book.title) || '',
@@ -36,16 +38,23 @@ class BookFormContainer extends Component {
     }
   }
 
-  loadBook (id) {
-    // this.setState(() => ({
-    //   title: 'Harry Potter and the Sorcerer\'s Stone',
-    //   author: 'J.K. Rowling',
-    //   subject: 'Action & Adventure',
-    //   length: '309',
-    //   publicationYear: '1998',
-    //   publisher: 'Pottermore',
-    //   isbn: '1781100489'
-    // }))
+  async loadBook (id) {
+    const res = await fetch(`/api/books/${id}`)
+
+    if (res.ok) {
+      const book = await res.json()
+      this.setState(() => ({
+        title: book.title,
+        author: book.author,
+        subject: book.subject,
+        length: book.length,
+        publicationYear: book.publicationYear,
+        publisher: book.publisher,
+        isbn: book.isbn
+      }))
+    } else {
+      this.setState(() => ({ notFound: true }))
+    }
   }
 
   handleChange (e) {
@@ -58,9 +67,9 @@ class BookFormContainer extends Component {
   }
 
   render () {
-    return (
+    return this.state.notFound ?
+      <Redirect to='/books' /> :
       <BookForm {...this.props} {...this.state} onChange={this.handleChange} onSubmit={this.handleSubmit} />
-    )
   }
 }
 
