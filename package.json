@@ -19,10 +19,10 @@
   },
   "scripts": {
     "prestart": "npm run build",
-    "start": "node server.js",
+    "start": "node server/index.js",
     "client": "cd client && npm run start",
     "build": "cd client && npm run build",
-    "server": "nodemon server.js",
+    "server": "nodemon server/index.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "devDependencies": {

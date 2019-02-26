@@ -19,6 +19,7 @@
   padding: 5px 10px;
   width: 100%;
   outline: none;
+  transition: all .2s;
 }
 #book-form form label input:focus,
 #book-form form label select:focus {
