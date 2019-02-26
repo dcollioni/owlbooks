@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const BookListItem = ({ book }) => (
   <Link className='book-list-item' to={{
-    pathname: `/books/${book.id}`,
+    pathname: `/books/${book._id}`,
     state: { book }
   }}>
     <span>{book.title}</span>

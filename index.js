@@ -1,4 +1,9 @@
 const app = require('./server/app')
+const { connect } = require('./server/database/connection')
 const port = process.env.PORT || 3001
 
-app.listen(port, () => console.log(`Listening on port ${port}`))
+app.listen(port, async () => {
+  console.log(`Listening on port ${port}`)
+  await connect()
+  console.log(`Connected to MongoDB`)
+})
