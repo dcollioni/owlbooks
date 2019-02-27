@@ -8,7 +8,17 @@ const findById = (id) => {
   return bookRepository.findById(id)
 }
 
+const insert = (bookData) => {
+  return bookRepository.insert(bookData)
+}
+
+const update = async (id, bookData) => {
+  return bookRepository.update(id, bookData)
+}
+
 module.exports = {
   findAll,
-  findById
+  findById,
+  insert,
+  update
 }

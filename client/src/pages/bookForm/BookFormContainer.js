@@ -19,8 +19,8 @@ class BookFormContainer extends Component {
       title: (book && book.title) || '',
       author: (book && book.author) || '',
       subject: (book && book.subject) || '',
-      length: (book && book.length) || '',
-      publicationYear: (book && book.publicationYear) || '',
+      length: (book && book.length) ? book.length.toString() : '',
+      publicationYear: (book && book.publicationYear) ? book.publicationYear.toString() : '',
       publisher: (book && book.publisher) || '',
       isbn: (book && book.isbn) || ''
     }
@@ -47,8 +47,8 @@ class BookFormContainer extends Component {
         title: book.title,
         author: book.author,
         subject: book.subject,
-        length: book.length,
-        publicationYear: book.publicationYear,
+        length: book.length ? book.length.toString() : '',
+        publicationYear: book.publicationYear ? book.publicationYear.toString() : '',
         publisher: book.publisher,
         isbn: book.isbn
       }))
@@ -62,8 +62,25 @@ class BookFormContainer extends Component {
     this.setState(() => ({ [name]: value }))
   }
 
-  handleSubmit (e) {
+  async handleSubmit (e) {
     e.preventDefault()
+
+    const { id, title, author, subject, length, publicationYear, publisher, isbn } = this.state
+    const book = { title, author, subject, length, publicationYear, publisher, isbn }
+
+    if (!id) {
+      const res = await fetch('/api/books', {
+        headers: { 'Content-Type': 'application/json' },
+        method: 'post',
+        body: JSON.stringify(book)
+      })
+    } else {
+      const res = await fetch(`/api/books/${id}`, {
+        headers: { 'Content-Type': 'application/json' },
+        method: 'put',
+        body: JSON.stringify(book)
+      })
+    }
   }
 
   render () {

@@ -11,7 +11,7 @@ const BookList = ({ books }) => (
     </header>
     <div className='book-list'>
       {books.map(book =>
-        <BookListItemContainer key={book.id} book={book} />
+        <BookListItemContainer key={book._id} book={book} />
       )}
     </div>
     <FloatingButton icon='add' url='/books/new' title='Add book' />
