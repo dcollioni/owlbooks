@@ -13,19 +13,23 @@ const BookForm = ({ R, pageTitle, title, author, subject, length, publicationYea
         label={R.strings.title}
         name='title'
         value={title}
-        onChange={onChange} autoFocus />
+        onChange={onChange}
+        required
+        autoFocus />
 
       <TextFieldContainer
         label={R.strings.author}
         name='author'
         value={author}
-        onChange={onChange} />
+        onChange={onChange}
+        required />
 
       <TextFieldContainer
         label={R.strings.subject}
         name='subject'
         value={subject}
         onChange={onChange}
+        required
         dataListItems={[
           R.strings.actionAndAdventure,
           R.strings.biography,

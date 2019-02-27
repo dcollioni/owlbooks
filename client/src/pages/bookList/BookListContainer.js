@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import BookList from './BookList'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 const { fetch } = window
 
 class BookListContainer extends Component {
@@ -20,13 +22,18 @@ class BookListContainer extends Component {
 
   render () {
     return (
-      <BookList books={this.state.books} />
+      <BookList R={this.props.R} books={this.state.books} />
     )
   }
 }
 
 BookListContainer.propTypes = {
-  user: PropTypes.object
+  user: PropTypes.object,
+  R: PropTypes.object.isRequired
 }
 
-export default BookListContainer
+const stateToProps = ({ R }) => ({
+  R
+})
+
+export default withRouter(connect(stateToProps)(BookListContainer))

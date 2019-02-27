@@ -1,4 +1,5 @@
 {
+  "myBooks": "My books",
   "title": "Title",
   "author": "Author",
   "subject": "Subject",
@@ -9,9 +10,9 @@
   "addNewBook": "Add new book",
   "editBook": "Edit book",
   "saveBook": "Save book",
-  "actionAndAdventure": "Ação e Aventura",
-  "biography": "Biografia",
-  "fiction": "Ficção",
+  "actionAndAdventure": "Action & Adventure",
+  "biography": "Biography",
+  "fiction": "Fiction",
   "romance": "Romance",
   "terror": "Terror"
 }

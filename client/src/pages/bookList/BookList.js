@@ -4,10 +4,10 @@ import BookListItemContainer from './components/BookListItemContainer'
 import FloatingButton from './../components/floatingButton/FloatingButton'
 import './BookList.css'
 
-const BookList = ({ books }) => (
+const BookList = ({ R, books }) => (
   <div id='book-list'>
     <header>
-      <h2>My books</h2>
+      <h2>{R.strings.myBooks}</h2>
     </header>
     <div className='book-list'>
       {books.map(book =>
@@ -19,6 +19,7 @@ const BookList = ({ books }) => (
 )
 
 BookList.propTypes = {
+  R: PropTypes.object.isRequired,
   books: PropTypes.array.isRequired
 }
 

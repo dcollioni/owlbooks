@@ -20,23 +20,23 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   const { body } = req
-  const book = await bookService.insert(body)
 
-  if (book) {
+  try {
+    const book = await bookService.insert(body)
     res.status(201).json(book)
-  } else {
-    res.sendStatus(400)
+  } catch (error) {
+    res.status(400).send(error.message)
   }
 })
 
 router.put('/:id', async (req, res) => {
   const { body, params: { id } } = req
-  const book = await bookService.update(id, body)
 
-  if (book) {
+  try {
+    const book = await bookService.update(id, body)
     res.status(200).json(book)
-  } else {
-    res.sendStatus(400)
+  } catch (error) {
+    res.status(400).send(error.message)
   }
 })
 
