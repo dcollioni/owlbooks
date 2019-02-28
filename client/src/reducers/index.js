@@ -3,14 +3,17 @@ import strings from './../resources/strings.json'
 import {
   LOGIN,
   LOGOUT,
-  LOAD_RESOURCES
+  LOAD_RESOURCES,
+  SHOW_TOAST
 } from './../actions'
 
 import { REHYDRATE } from 'redux-persist'
 
 const initialState = {
   R: { strings },
-  user: null
+  user: null,
+  showToast: 0,
+  toastMessage: ''
 }
 
 function reducer (state = initialState, action) {
@@ -31,6 +34,13 @@ function reducer (state = initialState, action) {
       return {
         ...state,
         user: null
+      }
+
+    case SHOW_TOAST:
+      return {
+        ...state,
+        showToast: new Date().getTime(),
+        toastMessage: action.message
       }
 
     case REHYDRATE:

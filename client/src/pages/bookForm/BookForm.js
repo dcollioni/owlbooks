@@ -3,7 +3,19 @@ import PropTypes from 'prop-types'
 import './BookForm.css'
 import TextFieldContainer from './components/TextFieldContainer'
 
-const BookForm = ({ R, pageTitle, title, author, subject, length, publicationYear, publisher, isbn, onChange, onSubmit }) => (
+const BookForm = ({
+  R,
+  pageTitle,
+  title,
+  author,
+  subject,
+  length,
+  publicationYear,
+  publisher,
+  isbn,
+  onChange,
+  onSubmit,
+  saving }) => (
   <div id='book-form'>
     <header>
       <h2>{pageTitle}</h2>
@@ -14,7 +26,9 @@ const BookForm = ({ R, pageTitle, title, author, subject, length, publicationYea
         name='title'
         value={title}
         onChange={onChange}
+        readOnly={saving}
         required
+        pattern='.*[\w]+.*'
         autoFocus />
 
       <TextFieldContainer
@@ -22,6 +36,8 @@ const BookForm = ({ R, pageTitle, title, author, subject, length, publicationYea
         name='author'
         value={author}
         onChange={onChange}
+        readOnly={saving}
+        pattern='.*[\w]+.*'
         required />
 
       <TextFieldContainer
@@ -29,6 +45,8 @@ const BookForm = ({ R, pageTitle, title, author, subject, length, publicationYea
         name='subject'
         value={subject}
         onChange={onChange}
+        readOnly={saving}
+        pattern='.*[\w]+.*'
         required
         dataListItems={[
           R.strings.actionAndAdventure,
@@ -43,6 +61,7 @@ const BookForm = ({ R, pageTitle, title, author, subject, length, publicationYea
         name='length'
         value={length}
         onChange={onChange}
+        readOnly={saving}
         type='number'
         min={0} />
 
@@ -51,6 +70,7 @@ const BookForm = ({ R, pageTitle, title, author, subject, length, publicationYea
         name='publicationYear'
         value={publicationYear}
         onChange={onChange}
+        readOnly={saving}
         type='number'
         max={9999} />
 
@@ -58,16 +78,22 @@ const BookForm = ({ R, pageTitle, title, author, subject, length, publicationYea
         label={R.strings.publisher}
         name='publisher'
         value={publisher}
-        onChange={onChange} />
+        onChange={onChange}
+        readOnly={saving}
+        pattern='.*[\w]+.*' />
 
       <TextFieldContainer
         label={R.strings.isbn}
         name='isbn'
         value={isbn}
-        onChange={onChange} />
+        onChange={onChange}
+        readOnly={saving}
+        pattern='.*[\w]+.*' />
 
-      <div>
-        <button type='submit'>{R.strings.saveBook}</button>
+      <div className='action-buttons'>
+        <button type='submit' disabled={saving}>
+          {saving ? (`${R.strings.saving}...`) : R.strings.saveBook}
+        </button>
       </div>
     </form>
   </div>

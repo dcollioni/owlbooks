@@ -10,9 +10,12 @@
   "addNewBook": "Add new book",
   "editBook": "Edit book",
   "saveBook": "Save book",
+  "saving": "Saving",
   "actionAndAdventure": "Action & Adventure",
   "biography": "Biography",
   "fiction": "Fiction",
   "romance": "Romance",
-  "terror": "Terror"
+  "terror": "Terror",
+  "savingFailedTryAgain": "Saving failed. Please try again.",
+  "bookSaved": "Book saved"
 }

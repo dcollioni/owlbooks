@@ -9,12 +9,17 @@ router.get('/', async (_req, res) => {
 
 router.get('/:id', async (req, res) => {
   const { params: { id } } = req
-  const book = await bookService.findById(id)
 
-  if (book) {
-    res.json(book)
-  } else {
-    res.sendStatus(404)
+  try {
+    const book = await bookService.findById(id)
+
+    if (book) {
+      res.json(book)
+    } else {
+      res.sendStatus(404)
+    }
+  } catch (error) {
+    res.status(400).send(error.message)
   }
 })
 

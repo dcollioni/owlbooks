@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import ToastContainer from './../components/toast/ToastContainer'
 import './App.css'
 
 const App = ({ children }) => {
@@ -16,6 +17,7 @@ const App = ({ children }) => {
       </section>
       <footer>
       </footer>
+      <ToastContainer />
     </main>
   )
 }

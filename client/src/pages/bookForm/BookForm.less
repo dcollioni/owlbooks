@@ -27,6 +27,10 @@
         &:focus {
           border-bottom-color: @color-primary;
         }
+
+        &:read-only {
+          cursor: default;
+        }
       }
     }
 
@@ -52,6 +56,12 @@
       &:active {
         background-color: @color-primary-dark;
       }
+
+      &:disabled {
+        background-color: @color-primary-dark;
+        box-shadow: none;
+        cursor: default;
+      }
     }
 
     @media screen and (min-width: @phone-width) {
@@ -73,7 +83,7 @@
         }
       }
 
-      :nth-child(8) {
+      .action-buttons {
         grid-column: span 2;
         text-align: right;
       }
@@ -87,7 +97,7 @@
     @media screen and (min-width: @desktop-width) {
       grid-template-columns: repeat(4, 1fr);
 
-      :nth-child(8) {
+      .action-buttons {
         grid-column: span 4;
       }
 

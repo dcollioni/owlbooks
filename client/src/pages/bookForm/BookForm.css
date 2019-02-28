@@ -25,6 +25,10 @@
 #book-form form label select:focus {
   border-bottom-color: #9c27b0;
 }
+#book-form form label input:read-only,
+#book-form form label select:read-only {
+  cursor: default;
+}
 #book-form form button {
   background-color: #9c27b0;
   border: none;
@@ -47,6 +51,11 @@
 #book-form form button:active {
   background-color: #6a0080;
 }
+#book-form form button:disabled {
+  background-color: #6a0080;
+  box-shadow: none;
+  cursor: default;
+}
 @media screen and (min-width: 375px) {
   #book-form form {
     grid-template-columns: repeat(2, 1fr);
@@ -66,7 +75,7 @@
   #book-form form label button {
     font-size: 16px;
   }
-  #book-form form :nth-child(8) {
+  #book-form form .action-buttons {
     grid-column: span 2;
     text-align: right;
   }
@@ -79,7 +88,7 @@
   #book-form form {
     grid-template-columns: repeat(4, 1fr);
   }
-  #book-form form :nth-child(8) {
+  #book-form form .action-buttons {
     grid-column: span 4;
   }
   #book-form form label {
