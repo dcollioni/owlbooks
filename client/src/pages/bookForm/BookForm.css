@@ -45,9 +45,9 @@
 }
 @media screen and (min-width: 1280px) {
   #book-form header .action-items button {
-    background-size: 32px;
-    height: 48px;
-    width: 48px;
+    background-size: 30px;
+    height: 45px;
+    width: 45px;
   }
 }
 #book-form form {
