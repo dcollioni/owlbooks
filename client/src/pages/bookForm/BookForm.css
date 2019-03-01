@@ -1,3 +1,55 @@
+#book-form header {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+#book-form header h2 {
+  display: inline-block;
+}
+#book-form header .action-items {
+  text-align: right;
+}
+#book-form header .action-items button {
+  background-color: #f6f6f6;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  float: right;
+  opacity: .5;
+  outline: none;
+  margin: -7.5px -10.5px 0 0;
+  height: 40px;
+  width: 40px;
+  transition: all .2s;
+}
+#book-form header .action-items button:hover,
+#book-form header .action-items button:focus {
+  background-color: #e6e6e6;
+  opacity: .8;
+}
+#book-form header .action-items button:active {
+  background-color: #d6d6d6;
+  opacity: 1;
+}
+#book-form header .action-items button.delete {
+  background-image: url('/images/ic_delete_black2.png');
+}
+@media screen and (min-width: 375px) {
+  #book-form header .action-items button {
+    background-size: 30px;
+    height: 45px;
+    width: 45px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #book-form header .action-items button {
+    background-size: 32px;
+    height: 48px;
+    width: 48px;
+  }
+}
 #book-form form {
   display: grid;
   grid-gap: 15px;

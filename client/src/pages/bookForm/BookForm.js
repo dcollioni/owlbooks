@@ -19,6 +19,9 @@ const BookForm = ({
   <div id='book-form'>
     <header>
       <h2>{pageTitle}</h2>
+      <nav className='action-items'>
+        <button className='delete' title={R.strings.deleteBook}></button>
+      </nav>
     </header>
     <form method='post' action='/' onSubmit={onSubmit}>
       <TextFieldContainer

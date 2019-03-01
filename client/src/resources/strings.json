@@ -17,5 +17,6 @@
   "romance": "Romance",
   "terror": "Terror",
   "savingFailedTryAgain": "Saving failed. Please try again.",
-  "bookSaved": "Book saved"
+  "bookSaved": "Book saved",
+  "deleteBook": "Delete book"
 }
