@@ -45,4 +45,15 @@ router.put('/:id', async (req, res) => {
   }
 })
 
+router.delete('/:id', async (req, res) => {
+  const { params: { id } } = req
+
+  try {
+    await bookService.remove(id)
+    res.sendStatus(204)
+  } catch (error) {
+    res.status(400).send(error.message)
+  }
+})
+
 module.exports = router

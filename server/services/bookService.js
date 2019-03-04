@@ -16,9 +16,14 @@ const update = async (id, bookData) => {
   return bookRepository.update(id, bookData)
 }
 
+const remove = async (id) => {
+  return bookRepository.remove(id)
+}
+
 module.exports = {
   findAll,
   findById,
   insert,
-  update
+  update,
+  remove
 }

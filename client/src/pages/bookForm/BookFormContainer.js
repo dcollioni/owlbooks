@@ -4,7 +4,7 @@ import BookForm from './BookForm'
 import { connect } from 'react-redux'
 import { withRouter, Redirect } from 'react-router-dom'
 import { showToast } from './../../actions'
-const { fetch } = window
+const { fetch, confirm } = window
 
 class BookFormContainer extends Component {
   constructor (props) {
@@ -30,6 +30,7 @@ class BookFormContainer extends Component {
     this.loadBook = this.loadBook.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   componentDidMount () {
@@ -109,10 +110,31 @@ class BookFormContainer extends Component {
     }
   }
 
+  async handleDelete () {
+    const shouldDelete = confirm(this.props.R.strings.confirmBookDeletion)
+    if (shouldDelete) {
+      this.setState(() => ({ saving: true }))
+      const { id } = this.state
+      const res = await fetch(`/api/books/${id}`, { method: 'delete' })
+      if (res.ok) {
+        this.setState(() => ({ redirect: true }))
+        this.props.dispatch(showToast(this.props.R.strings.bookDeleted))
+      } else {
+        this.setState(() => ({ saving: false }))
+        this.props.dispatch(showToast(this.props.R.strings.deletingFailedTryAgain))
+      }
+    }
+  }
+
   render () {
     return this.state.redirect ?
       <Redirect to='/books' /> :
-      <BookForm {...this.props} {...this.state} onChange={this.handleChange} onSubmit={this.handleSubmit} />
+      <BookForm
+        {...this.props}
+        {...this.state}
+        onChange={this.handleChange}
+        onSubmit={this.handleSubmit}
+        onClickDelete={this.handleDelete} />
   }
 }
 

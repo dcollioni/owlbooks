@@ -19,9 +19,15 @@ const update = async (id, bookData) => {
   return book.save()
 }
 
+const remove = async (id) => {
+  const book = await findById(id)
+  return book.remove()
+}
+
 module.exports = {
   findAll,
   findById,
   insert,
-  update
+  update,
+  remove
 }

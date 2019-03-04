@@ -6,6 +6,7 @@ import TextFieldContainer from './components/TextFieldContainer'
 const BookForm = ({
   R,
   pageTitle,
+  id,
   title,
   author,
   subject,
@@ -15,12 +16,15 @@ const BookForm = ({
   isbn,
   onChange,
   onSubmit,
+  onClickDelete,
   saving }) => (
   <div id='book-form'>
     <header>
       <h2>{pageTitle}</h2>
       <nav className='action-items'>
-        <button className='delete' title={R.strings.deleteBook}></button>
+        {id &&
+          <button className='delete' title={R.strings.deleteBook} onClick={onClickDelete}></button>
+        }
       </nav>
     </header>
     <form method='post' action='/' onSubmit={onSubmit}>
@@ -113,7 +117,8 @@ BookForm.propTypes = {
   publisher: PropTypes.string.isRequired,
   isbn: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  onClickDelete: PropTypes.func.isRequired
 }
 
 export default BookForm
