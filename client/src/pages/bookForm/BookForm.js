@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './BookForm.css'
-import TextFieldContainer from './components/TextFieldContainer'
+import InputField from './../components/inputField/InputField'
+import InputButton from './../components/inputButton/InputButton'
+import ActionButton from './../components/actionButton/ActionButton'
 
 const BookForm = ({
   R,
@@ -23,12 +25,12 @@ const BookForm = ({
       <h2>{pageTitle}</h2>
       <nav className='action-items'>
         {id &&
-          <button className='delete' title={R.strings.deleteBook} onClick={onClickDelete}></button>
+          <ActionButton icon='delete' title={R.strings.deleteBook} onClick={onClickDelete} />
         }
       </nav>
     </header>
     <form method='post' action='/' onSubmit={onSubmit}>
-      <TextFieldContainer
+      <InputField
         label={R.strings.title}
         name='title'
         value={title}
@@ -38,7 +40,7 @@ const BookForm = ({
         pattern='.*[\w]+.*'
         autoFocus />
 
-      <TextFieldContainer
+      <InputField
         label={R.strings.author}
         name='author'
         value={author}
@@ -47,7 +49,7 @@ const BookForm = ({
         pattern='.*[\w]+.*'
         required />
 
-      <TextFieldContainer
+      <InputField
         label={R.strings.subject}
         name='subject'
         value={subject}
@@ -63,7 +65,7 @@ const BookForm = ({
           R.strings.terror
         ]} />
 
-      <TextFieldContainer
+      <InputField
         label={R.strings.length}
         name='length'
         value={length}
@@ -72,7 +74,7 @@ const BookForm = ({
         type='number'
         min={0} />
 
-      <TextFieldContainer
+      <InputField
         label={R.strings.publicationYear}
         name='publicationYear'
         value={publicationYear}
@@ -81,7 +83,7 @@ const BookForm = ({
         type='number'
         max={9999} />
 
-      <TextFieldContainer
+      <InputField
         label={R.strings.publisher}
         name='publisher'
         value={publisher}
@@ -89,7 +91,7 @@ const BookForm = ({
         readOnly={saving}
         pattern='.*[\w]+.*' />
 
-      <TextFieldContainer
+      <InputField
         label={R.strings.isbn}
         name='isbn'
         value={isbn}
@@ -97,10 +99,8 @@ const BookForm = ({
         readOnly={saving}
         pattern='.*[\w]+.*' />
 
-      <div className='action-buttons'>
-        <button type='submit' disabled={saving}>
-          {saving ? (`${R.strings.saving}...`) : R.strings.saveBook}
-        </button>
+      <div>
+        <InputButton type='submit' text={saving ? (`${R.strings.saving}...`) : R.strings.saveBook} disabled={saving} />
       </div>
     </form>
   </div>

@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './InputField.css'
 
-const TextField = ({ type, name, label, value, dataListItems, onChange, ...props }) => (
-  <label>
+const InputField = ({ type, name, label, value, dataListItems, onChange, ...props }) => (
+  <label className='input-field'>
     <span>{label}</span>
     <input
       type={type || 'text'}
@@ -22,7 +23,7 @@ const TextField = ({ type, name, label, value, dataListItems, onChange, ...props
   </label>
 )
 
-TextField.propTypes = {
+InputField.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
@@ -31,4 +32,4 @@ TextField.propTypes = {
   dataListItems: PropTypes.array
 }
 
-export default TextField
+export default InputField

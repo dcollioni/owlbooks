@@ -9,130 +9,33 @@
   text-align: right;
 }
 #book-form header .action-items button {
-  background-color: #f6f6f6;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 25px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
   float: right;
-  opacity: .5;
-  outline: none;
   margin: -7.5px -10.5px 0 0;
-  height: 40px;
-  width: 40px;
-  transition: all .2s;
-}
-#book-form header .action-items button:hover,
-#book-form header .action-items button:focus {
-  background-color: #e6e6e6;
-  opacity: .8;
-}
-#book-form header .action-items button:active {
-  background-color: #d6d6d6;
-  opacity: 1;
-}
-#book-form header .action-items button.delete {
-  background-image: url('/images/ic_delete_black2.png');
-}
-@media screen and (min-width: 375px) {
-  #book-form header .action-items button {
-    background-size: 30px;
-    height: 45px;
-    width: 45px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  #book-form header .action-items button {
-    background-size: 30px;
-    height: 45px;
-    width: 45px;
-  }
 }
 #book-form form {
   display: grid;
   grid-gap: 15px;
   margin: 20px 0;
 }
-#book-form form label {
-  color: #888888;
-  font-size: 13px;
-}
-#book-form form label span {
-  display: block;
-}
-#book-form form label input,
-#book-form form label select {
-  background-color: #f6f6f6;
-  border: none;
-  border-bottom: 2px solid #e6e6e6;
-  font-size: 14px;
-  padding: 5px 10px;
-  width: 100%;
-  outline: none;
-  transition: all .2s;
-}
-#book-form form label input:focus,
-#book-form form label select:focus {
-  border-bottom-color: #9c27b0;
-}
-#book-form form label input:read-only,
-#book-form form label select:read-only {
-  cursor: default;
-}
 #book-form form button {
-  background-color: #9c27b0;
-  border: none;
-  border-radius: 2px;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
-  color: #fbfbfb;
-  cursor: pointer;
-  font-size: 15px;
   margin-top: 10px;
-  outline: none;
-  padding: 10px;
-  text-transform: uppercase;
-  width: 100%;
-  transition: all .2s;
-}
-#book-form form button:hover,
-#book-form form button:focus {
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4);
-}
-#book-form form button:active {
-  background-color: #6a0080;
-}
-#book-form form button:disabled {
-  background-color: #6a0080;
-  box-shadow: none;
-  cursor: default;
 }
 @media screen and (min-width: 375px) {
   #book-form form {
     grid-template-columns: repeat(2, 1fr);
   }
-  #book-form form label {
-    font-size: 14px;
-  }
-  #book-form form label:nth-child(1),
-  #book-form form label:nth-child(2),
-  #book-form form label:nth-child(3),
-  #book-form form label:nth-child(6),
-  #book-form form label:nth-child(7) {
+  #book-form form :nth-child(1),
+  #book-form form :nth-child(2),
+  #book-form form :nth-child(3),
+  #book-form form :nth-child(6),
+  #book-form form :nth-child(7),
+  #book-form form :nth-child(8) {
     grid-column: span 2;
   }
-  #book-form form label input,
-  #book-form form label select,
-  #book-form form label button {
-    font-size: 16px;
-  }
-  #book-form form .action-buttons {
-    grid-column: span 2;
+  #book-form form :nth-child(8) {
     text-align: right;
   }
   #book-form form button {
-    font-size: 16px;
     max-width: 150px;
   }
 }
@@ -140,18 +43,10 @@
   #book-form form {
     grid-template-columns: repeat(4, 1fr);
   }
-  #book-form form .action-buttons {
+  #book-form form :nth-child(8) {
     grid-column: span 4;
   }
-  #book-form form label {
-    font-size: 15px;
-  }
-  #book-form form label input,
-  #book-form form label select {
-    font-size: 17px;
-  }
   #book-form form button {
-    font-size: 17px;
     max-width: 180px;
   }
 }
