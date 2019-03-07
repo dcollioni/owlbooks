@@ -9,7 +9,7 @@ class ToastContainer extends Component {
     super(props)
 
     this.state = {
-      status: 'hide'
+      status: ''
     }
 
     this.fadeOut = null

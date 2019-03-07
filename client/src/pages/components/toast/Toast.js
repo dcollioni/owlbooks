@@ -4,7 +4,7 @@ import './Toast.css'
 
 const Toast = ({ message, status }) => {
   return (
-    <div id='toast' className={status === 'show' ? 'fadeIn' : 'fadeOut'}>
+    <div id='toast' className={status === 'show' ? 'fadeIn' : status === 'hide' ? 'fadeOut' : ''}>
       <p>{message}</p>
     </div>
   )
