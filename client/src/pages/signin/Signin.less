@@ -1,0 +1,91 @@
+@import "./../../_default.less";
+
+#signin {
+  background-color: @color-background-light;
+  border-radius: 3px;
+  margin: auto;
+  padding: 20px;
+  .with-shadow();
+
+  header {
+    h2 {
+      text-align: center;
+    }
+  }
+
+  form {
+    display: grid;
+    grid-gap: 15px;
+    margin: 20px 0 0 0;
+
+    :nth-child(3) {
+      text-align: right;
+    }
+
+    :nth-child(4) {
+      text-align: center;
+    }
+
+    input {
+      background-color: @color-background-light;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+
+    a {
+      color: @color-primary;
+      font-weight: bold;
+      font-size: 15px;
+      text-decoration: none;
+    }
+  }
+
+  @media screen and (min-width: @phone-width) {
+    max-width: 450px;
+
+    form {
+      grid-template-columns: 1fr 1fr;
+
+      :nth-child(1),
+      :nth-child(2) {
+        grid-column: span 2;
+      }
+      :nth-child(3) {
+        order: 4;
+      }
+      :nth-child(4) {
+        text-align: left;
+      }
+
+      button {
+        max-width: 150px;
+      }
+
+      a {
+        display: inline-block;
+        font-size: 16px;
+        padding-top: 20px;
+      }
+    }
+  }
+
+  @media screen and (min-width: @desktop-width) {
+    margin-top: 40px;
+    max-width: 650px;
+    padding: 40px;
+
+    form {
+      grid-gap: 25px;
+
+      button {
+        max-width: 180px;
+      }
+
+      a {
+        font-size: 17px;
+      }
+    }
+  }
+}

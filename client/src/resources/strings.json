@@ -21,5 +21,13 @@
   "bookSaved": "Book saved",
   "bookDeleted": "Book deleted",
   "deleteBook": "Delete book",
-  "confirmBookDeletion": "Do you confirm book deletion?"
+  "confirmBookDeletion": "Do you confirm book deletion?",
+  "signin": "Sign in",
+  "createAccount": "Create account",
+  "createYourAccount": "Create your account",
+  "email": "E-mail",
+  "password": "Password",
+  "firstName": "First name",
+  "lastName": "Last name",
+  "confirmPassword": "Confirm password"
 }

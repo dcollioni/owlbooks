@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 import ToastContainer from './../components/toast/ToastContainer'
 import './App.css'
 
-const App = ({ children }) => {
+const App = ({ children, user }) => {
   return (
-    <main className='app'>
+    <main className={`app ${!user ? 'unauthorized' : ''}`}>
       <header className='app-header'>
         <h1 className='app-title'>
           <Link to='/'>owlbooks</Link>

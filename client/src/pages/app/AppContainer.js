@@ -7,7 +7,7 @@ import App from './App'
 class AppContainer extends Component {
   render () {
     return (
-      <App children={this.props.children} />
+      <App {...this.props} />
     )
   }
 }

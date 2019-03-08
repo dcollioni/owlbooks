@@ -24,6 +24,10 @@
 .input-field select:read-only {
   cursor: default;
 }
+.input-field input::placeholder,
+.input-field select::placeholder {
+  color: #bbbbbb;
+}
 @media screen and (min-width: 375px) {
   .input-field {
     font-size: 14px;

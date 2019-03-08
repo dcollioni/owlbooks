@@ -1,0 +1,85 @@
+#signup {
+  background-color: #fbfbfb;
+  border-radius: 3px;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+#signup header h2 {
+  text-align: center;
+}
+#signup form {
+  display: grid;
+  grid-gap: 15px;
+  margin: 20px 0 0 0;
+}
+#signup form :nth-child(6) {
+  text-align: right;
+}
+#signup form :nth-child(7) {
+  text-align: center;
+}
+#signup form input {
+  background-color: #fbfbfb;
+}
+#signup form button {
+  margin-top: 10px;
+}
+#signup form a {
+  color: #9c27b0;
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+}
+@media screen and (min-width: 375px) {
+  #signup {
+    max-width: 450px;
+  }
+  #signup form {
+    grid-template-columns: 1fr 2fr;
+  }
+  #signup form :nth-child(1),
+  #signup form :nth-child(2),
+  #signup form :nth-child(3),
+  #signup form :nth-child(4),
+  #signup form :nth-child(5) {
+    grid-column: span 2;
+  }
+  #signup form :nth-child(6) {
+    order: 7;
+  }
+  #signup form :nth-child(7) {
+    text-align: left;
+  }
+  #signup form button {
+    max-width: 170px;
+  }
+  #signup form a {
+    display: inline-block;
+    font-size: 16px;
+    padding-top: 20px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #signup {
+    margin-top: 40px;
+    max-width: 800px;
+    padding: 40px;
+  }
+  #signup form {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 25px 15px;
+  }
+  #signup form :nth-child(1),
+  #signup form :nth-child(2),
+  #signup form :nth-child(4),
+  #signup form :nth-child(5) {
+    grid-column: span 1;
+  }
+  #signup form button {
+    max-width: 190px;
+  }
+  #signup form a {
+    font-size: 17px;
+  }
+}
