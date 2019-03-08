@@ -1,5 +1,6 @@
 const { Router } = require('express')
 const bookRouter = require('./bookRouter')
+const authRouter = require('./authRouter')
 const router = new Router()
 
 router.get('/', (_req, res) => {
@@ -7,5 +8,6 @@ router.get('/', (_req, res) => {
 })
 
 router.use('/books', bookRouter)
+router.use('/auth', authRouter)
 
 module.exports = router

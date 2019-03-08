@@ -5,7 +5,7 @@ import InputField from '../components/inputField/InputField'
 import InputButton from '../components/inputButton/InputButton'
 import { Link } from 'react-router-dom'
 
-const Signup = ({ R, firstName, lastName, email, password, password2, onChange, onSubmit }) => (
+const Signup = ({ R, firstName, lastName, email, password, password2, onChange, onSubmit, loading }) => (
   <div id='signup'>
     <header>
       <h2>{R.strings.createYourAccount}</h2>
@@ -17,7 +17,10 @@ const Signup = ({ R, firstName, lastName, email, password, password2, onChange, 
         name='firstName'
         value={firstName}
         onChange={onChange}
+        pattern='.*[\w]+.*'
+        readOnly={loading}
         required
+        maxLength={50}
         autoFocus />
       <InputField
         label={R.strings.lastName}
@@ -25,7 +28,10 @@ const Signup = ({ R, firstName, lastName, email, password, password2, onChange, 
         name='lastName'
         value={lastName}
         onChange={onChange}
-        required />
+        pattern='.*[\w]+.*'
+        readOnly={loading}
+        required
+        maxLength={50} />
       <InputField
         type='email'
         label={R.strings.email}
@@ -33,7 +39,9 @@ const Signup = ({ R, firstName, lastName, email, password, password2, onChange, 
         name='email'
         value={email}
         onChange={onChange}
-        required />
+        readOnly={loading}
+        required
+        maxLength={100} />
       <InputField
         type='password'
         label={R.strings.password}
@@ -41,7 +49,10 @@ const Signup = ({ R, firstName, lastName, email, password, password2, onChange, 
         name='password'
         value={password}
         onChange={onChange}
-        required />
+        readOnly={loading}
+        required
+        minLength={6}
+        maxLength={50} />
       <InputField
         type='password'
         label={R.strings.confirmPassword}
@@ -49,9 +60,13 @@ const Signup = ({ R, firstName, lastName, email, password, password2, onChange, 
         name='password2'
         value={password2}
         onChange={onChange}
-        required />
+        readOnly={loading}
+        required
+        minLength={6}
+        maxLength={50}
+        pattern={password} />
       <div>
-        <InputButton type='submit' text={R.strings.createAccount} />
+        <InputButton type='submit' text={loading ? R.strings.creatingAccount : R.strings.createAccount} disabled={loading} />
       </div>
       <div>
         <Link to='/signin'>{R.strings.signin}</Link>

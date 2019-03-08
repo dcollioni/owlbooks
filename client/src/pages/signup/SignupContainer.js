@@ -11,6 +11,8 @@ class SignupContainer extends Component {
     super(props)
 
     this.state = {
+      loading: false,
+      success: false,
       firstName: '',
       lastName: '',
       email: '',
@@ -29,6 +31,29 @@ class SignupContainer extends Component {
 
   async handleSubmit (e) {
     e.preventDefault()
+    this.setState(() => ({ loading: true }))
+
+    const { firstName, lastName, email, password, password2 } = this.state
+    const user = { firstName, lastName, email, password, password2 }
+
+    const res = await fetch('/api/auth/signup', {
+      headers: { 'Content-Type': 'application/json' },
+      method: 'post',
+      body: JSON.stringify(user)
+    })
+
+    this.setState(() => ({ loading: false }))
+
+    if (res.ok) {
+      this.setState(() => ({ success: true }))
+      this.props.dispatch(showToast(this.props.R.strings.accountCreated))
+    } else {
+      const errorMessage = res.status === 409
+        ? this.props.R.strings.emailAlreadyRegistered
+        : this.props.R.strings.failedCreatingAccountTryAgain
+
+      this.props.dispatch(showToast(errorMessage))
+    }
   }
 
   render () {

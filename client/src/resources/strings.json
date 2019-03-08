@@ -24,10 +24,14 @@
   "confirmBookDeletion": "Do you confirm book deletion?",
   "signin": "Sign in",
   "createAccount": "Create account",
+  "creatingAccount": "Creating account...",
   "createYourAccount": "Create your account",
   "email": "E-mail",
   "password": "Password",
   "firstName": "First name",
   "lastName": "Last name",
-  "confirmPassword": "Confirm password"
+  "confirmPassword": "Confirm password",
+  "failedCreatingAccountTryAgain": "Failed creating account. Please try again.",
+  "accountCreated": "Account created",
+  "emailAlreadyRegistered": "This e-mail was already registered. Please try to sign in."
 }
