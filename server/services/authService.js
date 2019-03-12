@@ -1,5 +1,6 @@
 const userRepository = require('./../repositories/userRepository')
 const HttpStatus = require('./../enums/HttpStatus')
+const bcrypt = require('bcrypt')
 
 const signup = async (userData) => {
   try {
@@ -7,6 +8,8 @@ const signup = async (userData) => {
     if (!password || password.length < 6) {
       throw { statusCode: HttpStatus.BAD_REQUEST, message: 'password must have at least 6 chars' }
     }
+
+    userData.password = await bcrypt.hash(password, 12)
 
     return await userRepository.insert(userData)
   } catch (error) {
