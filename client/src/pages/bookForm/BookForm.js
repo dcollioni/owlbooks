@@ -37,6 +37,7 @@ const BookForm = ({
         onChange={onChange}
         readOnly={saving}
         required
+        maxLength={100}
         pattern='.*[\w]+.*'
         autoFocus />
 
@@ -47,7 +48,8 @@ const BookForm = ({
         onChange={onChange}
         readOnly={saving}
         pattern='.*[\w]+.*'
-        required />
+        required
+        maxLength={100} />
 
       <InputField
         label={R.strings.subject}
@@ -57,6 +59,7 @@ const BookForm = ({
         readOnly={saving}
         pattern='.*[\w]+.*'
         required
+        maxLength={100}
         dataListItems={[
           R.strings.actionAndAdventure,
           R.strings.biography,
@@ -89,7 +92,8 @@ const BookForm = ({
         value={publisher}
         onChange={onChange}
         readOnly={saving}
-        pattern='.*[\w]+.*' />
+        pattern='.*[\w]+.*'
+        maxLength={100} />
 
       <InputField
         label={R.strings.isbn}
@@ -97,7 +101,8 @@ const BookForm = ({
         value={isbn}
         onChange={onChange}
         readOnly={saving}
-        pattern='.*[\w]+.*' />
+        pattern='.*[\w]+.*'
+        maxLength={100} />
 
       <div>
         <InputButton type='submit' text={saving ? (`${R.strings.saving}...`) : R.strings.saveBook} disabled={saving} />
