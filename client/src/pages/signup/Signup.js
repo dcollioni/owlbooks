@@ -5,7 +5,7 @@ import InputField from '../components/inputField/InputField'
 import InputButton from '../components/inputButton/InputButton'
 import { Link } from 'react-router-dom'
 
-const Signup = ({ R, firstName, lastName, email, password, password2, onChange, onSubmit, loading }) => (
+const Signup = ({ R, firstName, lastName, email, password, password2, passwordPattern, onChange, onSubmit, loading }) => (
   <div id='signup'>
     <header>
       <h2>{R.strings.createYourAccount}</h2>
@@ -64,7 +64,7 @@ const Signup = ({ R, firstName, lastName, email, password, password2, onChange, 
         required
         minLength={6}
         maxLength={50}
-        pattern={password} />
+        pattern={passwordPattern} />
       <div>
         <InputButton type='submit' text={loading ? R.strings.creatingAccount : R.strings.createAccount} disabled={loading} />
       </div>

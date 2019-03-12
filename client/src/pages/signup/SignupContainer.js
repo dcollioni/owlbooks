@@ -17,16 +17,28 @@ class SignupContainer extends Component {
       lastName: '',
       email: '',
       password: '',
-      password2: ''
+      password2: '',
+      passwordPattern: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
+    this.escapeRegExp = this.escapeRegExp.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange (e) {
     const { target: { value, name } } = e
     this.setState(() => ({ [name]: value }))
+
+    if (name === 'password') {
+      this.setState(() => ({
+        passwordPattern: this.escapeRegExp(value)
+      }))
+    }
+  }
+
+  escapeRegExp(string){
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   }
 
   async handleSubmit (e) {

@@ -3,8 +3,17 @@ const HttpStatus = require('./../enums/HttpStatus')
 
 const signup = async (userData) => {
   try {
+    const { password } = userData
+    if (!password || password.length < 6) {
+      throw { statusCode: HttpStatus.BAD_REQUEST, message: 'password must have at least 6 chars' }
+    }
+
     return await userRepository.insert(userData)
   } catch (error) {
+    if (error.statusCode && error.message) {
+      throw error
+    }
+
     let statusCode = HttpStatus.INTERNAL_SERVER_ERROR
     let message = 'failed on sign up'
 
