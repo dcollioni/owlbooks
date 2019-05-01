@@ -1,12 +1,11 @@
-import config from './../config'
 const { fetch } = window
 
 class Fetcher {
   constructor (authorizationToken) {
     this.authorizationToken = authorizationToken
-    this.baseUrl = config.apiUrl
+    this.baseUrl = '/api'
     this.headers = {
-      'Authorization': authorizationToken,
+      'Authorization': `bearer ${authorizationToken}`,
       'Content-Type': 'application/json'
     }
   }
@@ -19,12 +18,12 @@ class Fetcher {
     })
   }
 
-  post (path, body) {
+  post (path, payload) {
     const url = `${this.baseUrl}/${path}`
     return fetch(url, {
       headers: this.headers,
       method: 'post',
-      body: JSON.stringify(body)
+      body: JSON.stringify(payload)
     })
   }
 
@@ -37,12 +36,12 @@ class Fetcher {
     })
   }
 
-  put (path, body) {
+  put (path, payload) {
     const url = `${this.baseUrl}/${path}`
     return fetch(url, {
       headers: this.headers,
       method: 'put',
-      body: JSON.stringify(body)
+      body: JSON.stringify(payload)
     })
   }
 

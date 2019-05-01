@@ -5,10 +5,9 @@ import { persistReducer, persistStore } from 'redux-persist'
 import reducer from './../reducers'
 import storage from 'redux-persist/lib/storage'
 import createEncryptor from 'redux-persist-transform-encrypt'
-import config from './../config'
 
 const encryptor = createEncryptor({
-  secretKey: config.encryptKey
+  secretKey: process.env.REACT_APP_PERSIST_ENCRYPT_KEY
 })
 
 const persistConfig = {

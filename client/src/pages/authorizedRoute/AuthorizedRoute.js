@@ -6,13 +6,14 @@ import Fetcher from './../../utils/Fetcher'
 
 class AuthorizedRoute extends Component {
   render () {
-    const { component: Component, user, ...rest } = this.props
+    const { component: Component, R, user, ...rest } = this.props
     return (
       <Route {...rest} render={props => {
         if (!user) {
-          return <Redirect to='/login' />
+          return <Redirect to='/signin' />
         }
 
+        props.R = R
         props.user = user
         props.fetcher = new Fetcher(user.token)
         return <Component {...props} />
@@ -22,10 +23,12 @@ class AuthorizedRoute extends Component {
 }
 
 AuthorizedRoute.propTypes = {
+  R: PropTypes.object.isRequired,
   user: PropTypes.object
 }
 
-const stateToProps = ({ user }) => ({
+const stateToProps = ({ R, user }) => ({
+  R,
   user
 })
 

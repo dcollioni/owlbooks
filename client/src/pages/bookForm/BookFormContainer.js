@@ -4,11 +4,13 @@ import BookForm from './BookForm'
 import { connect } from 'react-redux'
 import { withRouter, Redirect } from 'react-router-dom'
 import { showToast } from './../../actions'
-const { fetch, confirm } = window
+const { confirm } = window
 
 class BookFormContainer extends Component {
   constructor (props) {
     super(props)
+
+    this.fetcher = this.props.fetcher
 
     const { R, match: { params: { id } }, location: { state } } = this.props
     const book = state && state.book
@@ -42,7 +44,7 @@ class BookFormContainer extends Component {
   }
 
   async loadBook (id) {
-    const res = await fetch(`/api/books/${id}`)
+    const res = await this.fetcher.get(`books/${id}`)
 
     if (res.ok) {
       const book = await res.json()
@@ -82,11 +84,7 @@ class BookFormContainer extends Component {
     this.setState(() => ({ saving: true }))
 
     if (!id) {
-      const res = await fetch('/api/books', {
-        headers: { 'Content-Type': 'application/json' },
-        method: 'post',
-        body: JSON.stringify(book)
-      })
+      const res = await this.fetcher.post('books', book)
       if (res.ok) {
         this.setState(() => ({ redirect: true }))
         this.props.dispatch(showToast(this.props.R.strings.bookSaved))
@@ -95,11 +93,7 @@ class BookFormContainer extends Component {
         this.props.dispatch(showToast(this.props.R.strings.savingFailedTryAgain))
       }
     } else {
-      const res = await fetch(`/api/books/${id}`, {
-        headers: { 'Content-Type': 'application/json' },
-        method: 'put',
-        body: JSON.stringify(book)
-      })
+      const res = await this.fetcher.put(`books/${id}`, book)
       if (res.ok) {
         this.setState(() => ({ redirect: true }))
         this.props.dispatch(showToast(this.props.R.strings.bookSaved))
@@ -115,7 +109,7 @@ class BookFormContainer extends Component {
     if (shouldDelete) {
       this.setState(() => ({ saving: true }))
       const { id } = this.state
-      const res = await fetch(`/api/books/${id}`, { method: 'delete' })
+      const res = await this.fetcher.delete(`books/${id}`)
       if (res.ok) {
         this.setState(() => ({ redirect: true }))
         this.props.dispatch(showToast(this.props.R.strings.bookDeleted))
@@ -140,11 +134,11 @@ class BookFormContainer extends Component {
 
 BookFormContainer.propTypes = {
   R: PropTypes.object.isRequired,
+  fetcher: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
 }
 
-const stateToProps = ({ R }) => ({
-  R
+const stateToProps = () => ({
 })
 
 export default withRouter(connect(stateToProps)(BookFormContainer))

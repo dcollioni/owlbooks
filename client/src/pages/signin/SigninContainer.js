@@ -4,21 +4,27 @@ import Signin from './Signin'
 import { connect } from 'react-redux'
 import { withRouter, Redirect } from 'react-router-dom'
 import { login, showToast } from '../../actions'
-const { fetch, confirm } = window
+const { fetch } = window
 
 class SigninContainer extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      success: false,
+      success: !!props.user,
     }
 
     this.handleGoogleSignInSuccess = this.handleGoogleSignInSuccess.bind(this)
     this.handleGoogleSignInFailure = this.handleGoogleSignInFailure.bind(this)
   }
 
-  async handleGoogleSignInSuccess ({ googleId, tokenId, accessToken, tokenObj, profileObj }) {
+  componentDidUpdate (prevProps) {
+    if (!!this.props.user && !prevProps.user) {
+      this.setState(() => ({ success: true }))
+    }
+  }
+
+  async handleGoogleSignInSuccess ({ tokenId }) {
     const res = await fetch('/api/auth/signin', {
       headers: { 'Content-Type': 'application/json' },
       method: 'post',
@@ -28,7 +34,6 @@ class SigninContainer extends Component {
     if (res.ok) {
       const user = await res.json()
       this.props.dispatch(login(user))
-      this.setState(() => ({ success: true }))
     } else {
       const errorMessage = this.props.R.strings.failedToSignin
       this.props.dispatch(showToast(errorMessage))
@@ -55,10 +60,12 @@ class SigninContainer extends Component {
 SigninContainer.propTypes = {
   R: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
+  user: PropTypes.object
 }
 
-const stateToProps = ({ R }) => ({
-  R
+const stateToProps = ({ R, user }) => ({
+  R,
+  user
 })
 
 export default withRouter(connect(stateToProps)(SigninContainer))
