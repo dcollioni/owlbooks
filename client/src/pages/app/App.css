@@ -3,6 +3,8 @@ main {
 }
 main > header {
   background-color: #fbfbfb;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
 }
 main > header h1 {
@@ -33,7 +35,65 @@ main > header h1 a {
     padding-left: 85px;
   }
 }
+main > header .user {
+  padding: 0 20px;
+  text-align: right;
+}
+main > header .user .wrapper {
+  display: inline-block;
+}
+main > header .user .wrapper .picture {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50px;
+  display: inline-block;
+  margin-top: 14px;
+  height: 35px;
+  width: 35px;
+}
+main > header .user .wrapper .name {
+  display: none;
+}
+@media screen and (min-width: 375px) {
+  main > header .user .wrapper .picture {
+    margin-top: 13px;
+    height: 40px;
+    width: 40px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  main > header .user {
+    padding: 0 40px;
+  }
+  main > header .user .wrapper {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 10px;
+  }
+  main > header .user .wrapper .picture {
+    transition: all .1s;
+  }
+  main > header .user .wrapper .name {
+    display: inline-block;
+    font-size: 14px;
+    margin: 25px 0 25px 10px;
+    vertical-align: top;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 165px;
+    transition: all .1s;
+  }
+  main > header .user .wrapper:hover .picture {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  main > header .user .wrapper:hover .name {
+    color: #9c27b0;
+  }
+}
 main.unauthorized > header {
+  display: block;
   text-align: center;
 }
 main > section.content {
