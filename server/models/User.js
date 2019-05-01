@@ -1,27 +1,38 @@
 const { mongoose } = require('./../database/connection')
-const UserStatus = require('./../enums/UserStatus')
 
 const User = mongoose.model('User', {
-  firstName: {
+  provider: {
     type: String,
     required: true,
+    enum: ['google'],
+    index: true
+  },
+  externalId: {
+    type: String,
+    required: true,
+    index: true
+  },
+  name: {
+    type: String,
+    required: true,
+    maxlength: 100,
+    trim: true
+  },
+  firstName: {
+    type: String,
     maxlength: 50,
     trim: true
   },
   lastName: {
     type: String,
-    required: true,
     maxlength: 50,
     trim: true
   },
   email: {
     type: String,
-    required: true,
     maxlength: 100,
     trim: true,
     lowercase: true,
-    index: true,
-    unique: true,
     validate: {
       validator: (value) => {
         const emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/
@@ -30,25 +41,18 @@ const User = mongoose.model('User', {
       message: 'e-mail is not valid'
     }
   },
-  password: {
+  picture: {
     type: String,
-    required: true,
-    index: true
+    trim: true
+  },
+  locale: {
+    type: String,
+    trim: true
   },
   createdAt: {
     type: Date,
     required: true,
     default: Date.now
-  },
-  status: {
-    type: Number,
-    required: true,
-    enum: [UserStatus.CREATED, UserStatus.ACTIVATED],
-    default: UserStatus.CREATED,
-    index: true
-  },
-  activatedAt: {
-    type: Date
   }
 })
 

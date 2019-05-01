@@ -8,6 +8,10 @@
 #signin header h2 {
   text-align: center;
 }
+#signin .providers {
+  margin: 20px 0 0 0;
+  text-align: center;
+}
 #signin form {
   display: grid;
   grid-gap: 15px;
@@ -60,7 +64,7 @@
 @media screen and (min-width: 1280px) {
   #signin {
     margin-top: 40px;
-    max-width: 650px;
+    /* max-width: 650px; */
     padding: 40px;
   }
   #signin form {

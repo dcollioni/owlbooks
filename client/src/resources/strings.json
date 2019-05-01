@@ -33,5 +33,6 @@
   "confirmPassword": "Confirm password",
   "failedCreatingAccountTryAgain": "Failed creating account. Please try again.",
   "accountCreated": "Account created",
-  "emailAlreadyRegistered": "This e-mail was already registered. Please try to sign in."
+  "emailAlreadyRegistered": "This e-mail was already registered. Please try to sign in.",
+  "failedToSignin": "Failed to sign in. Please try again."
 }

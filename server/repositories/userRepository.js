@@ -1,7 +1,7 @@
 const User = require('./../models/User')
 
-const findById = (id) => {
-  return Book.findById(id)
+const findByProvider = (provider, externalId) => {
+  return User.findOne({ provider, externalId })
 }
 
 const insert = (userData) => {
@@ -10,6 +10,6 @@ const insert = (userData) => {
 }
 
 module.exports = {
-  findById,
+  findByProvider,
   insert
 }
