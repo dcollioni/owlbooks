@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom'
 class BookListContainer extends Component {
   constructor (props) {
     super(props)
-    
+
     this.fetcher = this.props.fetcher
 
     this.state = {
@@ -16,9 +16,11 @@ class BookListContainer extends Component {
   }
 
   async componentDidMount () {
-    const response = await this.fetcher.get('books')
-    const books = await response.json()
-    this.setState(() => ({ books }))
+    const res = await this.fetcher.get('books')
+    if (res.ok) {
+      const books = await res.json()
+      this.setState(() => ({ books }))
+    }
   }
 
   render () {

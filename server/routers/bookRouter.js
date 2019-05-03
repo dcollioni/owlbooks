@@ -2,7 +2,7 @@ const { Router } = require('express')
 const router = new Router()
 const bookService = require('./../services/bookService')
 
-router.get('/', async (_req, res) => {
+router.get('/', async (req, res) => {
   const books = await bookService.findAll()
   res.json(books)
 })

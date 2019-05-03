@@ -6,7 +6,7 @@ import Fetcher from './../../utils/Fetcher'
 
 class AuthorizedRoute extends Component {
   render () {
-    const { component: Component, R, user, ...rest } = this.props
+    const { component: Component, R, user, dispatch, ...rest } = this.props
     return (
       <Route {...rest} render={props => {
         if (!user) {
@@ -15,7 +15,7 @@ class AuthorizedRoute extends Component {
 
         props.R = R
         props.user = user
-        props.fetcher = new Fetcher(user.token)
+        props.fetcher = new Fetcher(user.token, dispatch)
         return <Component {...props} />
       }} />
     )
