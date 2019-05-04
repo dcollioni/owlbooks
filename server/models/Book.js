@@ -1,6 +1,12 @@
 const { mongoose } = require('./../database/connection')
+const ObjectId = mongoose.SchemaTypes.ObjectId
 
 const Book = mongoose.model('Book', {
+  userId: {
+    type: ObjectId,
+    required: true,
+    index: true
+  },
   title: {
     type: String,
     required: true,

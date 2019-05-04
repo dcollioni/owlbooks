@@ -3,15 +3,16 @@ const router = new Router()
 const bookService = require('./../services/bookService')
 
 router.get('/', async (req, res) => {
-  const books = await bookService.findAll()
+  const { userId } = req
+  const books = await bookService.findAll(userId)
   res.json(books)
 })
 
 router.get('/:id', async (req, res) => {
-  const { params: { id } } = req
+  const { params: { id }, userId } = req
 
   try {
-    const book = await bookService.findById(id)
+    const book = await bookService.findById(id, userId)
 
     if (book) {
       res.json(book)
@@ -24,7 +25,8 @@ router.get('/:id', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-  const { body } = req
+  const { body, userId } = req
+  body.userId = userId
 
   try {
     const book = await bookService.insert(body)
@@ -35,7 +37,8 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
-  const { body, params: { id } } = req
+  const { body, params: { id }, userId } = req
+  body.userId = userId
 
   try {
     const book = await bookService.update(id, body)
@@ -46,10 +49,10 @@ router.put('/:id', async (req, res) => {
 })
 
 router.delete('/:id', async (req, res) => {
-  const { params: { id } } = req
+  const { params: { id }, userId } = req
 
   try {
-    await bookService.remove(id)
+    await bookService.remove(id, userId)
     res.sendStatus(204)
   } catch (error) {
     res.status(400).send(error.message)

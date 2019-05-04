@@ -14,6 +14,7 @@ const authenticator = (req, res, next) => {
 
   try {
     req.user = jwt.verify(token, process.env.JWT_PRIVATE_KEY)
+    req.userId = req.user._id
   } catch (e) {
     console.error(`authenticator error ${e}`)
     return res.sendStatus(UNAUTHORIZED)

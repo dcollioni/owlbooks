@@ -1,23 +1,25 @@
 const bookRepository = require('./../repositories/bookRepository')
 
-const findAll = () => {
-  return bookRepository.findAll()
+const findAll = (userId) => {
+  return bookRepository.findAll(userId)
 }
 
-const findById = (id) => {
-  return bookRepository.findById(id)
+const findById = (id, userId) => {
+  return bookRepository.findById(id, userId)
 }
 
-const insert = (bookData) => {
-  return bookRepository.insert(bookData)
+const insert = async (bookData) => {
+  const book = await bookRepository.insert(bookData)
+  return findById(book._id, book.userId)
 }
 
 const update = async (id, bookData) => {
-  return bookRepository.update(id, bookData)
+  const book = await bookRepository.update(id, bookData)
+  return findById(book._id, book.userId)
 }
 
-const remove = async (id) => {
-  return bookRepository.remove(id)
+const remove = (id, userId) => {
+  return bookRepository.remove(id, userId)
 }
 
 module.exports = {
