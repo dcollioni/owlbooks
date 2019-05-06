@@ -16,6 +16,8 @@ class SigninContainer extends Component {
 
     this.handleGoogleSignInSuccess = this.handleGoogleSignInSuccess.bind(this)
     this.handleGoogleSignInFailure = this.handleGoogleSignInFailure.bind(this)
+    this.handleFacebookSignInSuccess = this.handleFacebookSignInSuccess.bind(this)
+    this.handleFacebookSignInFailure = this.handleFacebookSignInFailure.bind(this)
   }
 
   componentDidUpdate (prevProps) {
@@ -28,7 +30,7 @@ class SigninContainer extends Component {
     const res = await fetch('/api/auth/signin', {
       headers: { 'Content-Type': 'application/json' },
       method: 'post',
-      body: JSON.stringify({ provider: 'google', tokenId })
+      body: JSON.stringify({ provider: 'google', token: tokenId })
     })
 
     if (res.ok) {
@@ -46,6 +48,28 @@ class SigninContainer extends Component {
     this.props.dispatch(showToast(errorMessage))
   }
 
+  async handleFacebookSignInSuccess (response) {
+    const res = await fetch('/api/auth/signin', {
+      headers: { 'Content-Type': 'application/json' },
+      method: 'post',
+      body: JSON.stringify({ provider: 'facebook', token: response.accessToken })
+    })
+
+    if (res.ok) {
+      const user = await res.json()
+      this.props.dispatch(login(user))
+    } else {
+      const errorMessage = this.props.R.strings.failedToSignin
+      this.props.dispatch(showToast(errorMessage))
+    }
+  }
+
+  async handleFacebookSignInFailure (response) {
+    console.log(response)
+    const errorMessage = this.props.R.strings.failedToSignin
+    this.props.dispatch(showToast(errorMessage))
+  }
+
   render () {
     if (this.state.success) {
       return <Redirect to='/' />
@@ -53,7 +77,9 @@ class SigninContainer extends Component {
 
     return <Signin {...this.props} {...this.state}
       onGoogleSignInSuccess={this.handleGoogleSignInSuccess}
-      onGoogleSignInFailure={this.handleGoogleSignInFailure} />
+      onGoogleSignInFailure={this.handleGoogleSignInFailure}
+      onFacebookSignInSuccess={this.handleFacebookSignInSuccess}
+      onFacebookSignInFailure={this.handleFacebookSignInFailure} />
   }
 }
 

@@ -3,10 +3,10 @@ const router = new Router()
 const authService = require('./../services/authService')
 
 router.post('/signin', async (req, res) => {
-  const { body: { provider, tokenId } } = req
+  const { body: { provider, token } } = req
 
   try {
-    const signedUser = await authService.signin(provider, tokenId)
+    const signedUser = await authService.signin(provider, token)
     res.status(200).json(signedUser)
   } catch (error) {
     res.sendStatus(400)

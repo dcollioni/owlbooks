@@ -4,7 +4,7 @@ const User = mongoose.model('User', {
   provider: {
     type: String,
     required: true,
-    enum: ['google'],
+    enum: ['google', 'facebook'],
     index: true
   },
   externalId: {

@@ -1,19 +1,23 @@
 const userRepository = require('./../repositories/userRepository')
 const { OAuth2Client } = require('google-auth-library')
+const FB = require('fb')
 const jwt = require('jsonwebtoken')
 
-const signin = async (provider, tokenId) => {
+const signin = async (provider, token) => {
   try {
-    const clientId = process.env.GOOGLE_CLIENT_ID
-    const client = new OAuth2Client(clientId)
+    let userData
 
-    const ticket = await client.verifyIdToken({
-        idToken: tokenId,
-        audience: clientId,
-    })
+    switch (provider) {
+      case 'google':
+        userData = await fetchGoogleUser(token)
+        break;
 
-    const payload = ticket.getPayload()
-    const user = await findOrCreateUser(provider, payload)
+      case 'facebook':
+        userData = await fetchFacebookUser(token)
+        break;
+    }
+
+    const user = await findOrCreateUser(userData)
     const jwt = generateJwt(user)
 
     return {
@@ -27,28 +31,65 @@ const signin = async (provider, tokenId) => {
   }
 }
 
+const fetchGoogleUser = async (token) => {
+  const clientId = process.env.GOOGLE_CLIENT_ID
+  const client = new OAuth2Client(clientId)
+
+  const ticket = await client.verifyIdToken({
+      idToken: token,
+      audience: clientId,
+  })
+
+  const payload = ticket.getPayload()
+
+  return {
+    provider: 'google',
+    externalId: payload.sub,
+    name: payload.name,
+    firstName: payload.given_name,
+    lastName: payload.family_name,
+    email: payload.email,
+    picture: payload.picture,
+    locale: payload.locale
+  }
+}
+
+const fetchFacebookUser = async (token) => {
+  return new Promise(resolve => {
+    const fb = new FB.Facebook({
+      appId: process.env.FACEBOOK_APP_ID,
+      appSecret: process.env.FACEBOOK_APP_SECRET,
+      version: 'v3.3'
+    })
+
+    fb.setAccessToken(token)
+
+    fb.api('/me?fields=id,name,email,picture,first_name,last_name,location', (response) => {
+      resolve({
+        provider: 'facebook',
+        externalId: response.id,
+        name: response.name,
+        firstName: response.first_name,
+        lastName: response.last_name,
+        email: response.email,
+        picture: response.picture && response.picture.data && response.picture.data.url,
+        locale: response.location
+      })
+    })
+  })
+}
+
 const generateJwt = (user) => {
   const privateKey = process.env.JWT_PRIVATE_KEY
   return jwt.sign(user.toObject(), privateKey, { expiresIn: '90d' })
 }
 
-const findOrCreateUser = async (provider, payload) => {
-  const externalId = payload.sub
+const findOrCreateUser = async (userData) => {
+  const { provider, externalId } = userData
   let user = await userRepository.findByProvider(provider, externalId)
 
   if (!user) {
-    user = {
-      provider,
-      externalId,
-      name: payload.name,
-      firstName: payload.given_name,
-      lastName: payload.family_name,
-      email: payload.email,
-      picture: payload.picture,
-      locale: payload.locale
-    }
-
-    user = await userRepository.insert(user)
+    user = await userRepository.insert(userData)
   }
 
   return user
