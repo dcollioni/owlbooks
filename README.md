@@ -5,4 +5,7 @@
 ## How to run
 1. Clone or download the project
 2. `npm install`
-3. `npm start`
+3. `npm run dev` or `npm start`
+
+## Test
+https://owlbooks.herokuapp.com/
