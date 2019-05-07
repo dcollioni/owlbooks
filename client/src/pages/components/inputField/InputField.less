@@ -8,7 +8,7 @@
     display: block;
   }
 
-  input, select {
+  input, select, textarea {
     background-color: @color-background;
     border: none;
     border-bottom: 2px solid @color-background-dark;
@@ -19,7 +19,7 @@
     .transitionable();
 
     &:focus {
-      border-bottom-color: @color-primary;
+      border-color: @color-primary;
     }
 
     &:read-only {
@@ -31,10 +31,17 @@
     }
   }
 
+  textarea {
+    border: 2px solid @color-background-dark;
+    height: 6em;
+    margin-top: 5px;
+    resize: none;
+  }
+
   @media screen and (min-width: @phone-width) {
     font-size: 14px;
 
-    input, select, button {
+    input, select, textarea, button {
       font-size: 16px;
     }
   }
@@ -42,7 +49,7 @@
   @media screen and (min-width: @desktop-width) {
     font-size: 15px;
 
-    input, select {
+    input, select, textarea {
       font-size: 17px;
     }
   }

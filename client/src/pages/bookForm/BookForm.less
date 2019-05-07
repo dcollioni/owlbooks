@@ -37,11 +37,12 @@
       :nth-child(3),
       :nth-child(6),
       :nth-child(7),
-      :nth-child(8) {
+      :nth-child(8),
+      :nth-child(9) {
         grid-column: span 2;
       }
 
-      :nth-child(8) {
+      :nth-child(9) {
         text-align: right;
       }
 
@@ -53,7 +54,8 @@
     @media screen and (min-width: @desktop-width) {
       grid-template-columns: repeat(4, 1fr);
 
-      :nth-child(8) {
+      :nth-child(8),
+      :nth-child(9) {
         grid-column: span 4;
       }
 

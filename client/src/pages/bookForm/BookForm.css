@@ -29,10 +29,11 @@
   #book-form form :nth-child(3),
   #book-form form :nth-child(6),
   #book-form form :nth-child(7),
-  #book-form form :nth-child(8) {
+  #book-form form :nth-child(8),
+  #book-form form :nth-child(9) {
     grid-column: span 2;
   }
-  #book-form form :nth-child(8) {
+  #book-form form :nth-child(9) {
     text-align: right;
   }
   #book-form form button {
@@ -43,7 +44,8 @@
   #book-form form {
     grid-template-columns: repeat(4, 1fr);
   }
-  #book-form form :nth-child(8) {
+  #book-form form :nth-child(8),
+  #book-form form :nth-child(9) {
     grid-column: span 4;
   }
   #book-form form button {

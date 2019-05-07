@@ -5,13 +5,22 @@ import './InputField.css'
 const InputField = ({ type, name, label, value, dataListItems, onChange, ...props }) => (
   <label className='input-field'>
     <span>{label}</span>
-    <input
-      type={type || 'text'}
-      name={name}
-      value={value}
-      list={dataListItems ? `${name}_items` : ''}
-      onChange={onChange}
-      {...props} />
+
+    {type === 'textarea' ?
+      <textarea
+        name={name}
+        value={value}
+        onChange={onChange}
+        {...props} />
+      :
+      <input
+        type={type || 'text'}
+        name={name}
+        value={value}
+        list={dataListItems ? `${name}_items` : ''}
+        onChange={onChange}
+        {...props} />
+    }
 
     {dataListItems && (
       <datalist id={`${name}_items`}>

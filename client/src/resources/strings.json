@@ -7,6 +7,7 @@
   "publisher": "Publisher",
   "isbn": "ISBN",
   "publicationYear": "Publication year",
+  "additionalInfo": "Additional info",
   "addNewBook": "Add new book",
   "editBook": "Edit book",
   "saveBook": "Save book",

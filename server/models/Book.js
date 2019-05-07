@@ -43,6 +43,10 @@ const Book = mongoose.model('Book', {
     maxlength: 100,
     trim: true
   },
+  additionalInfo: {
+    type: String,
+    trim: true
+  },
   createdAt: {
     type: Date,
     required: true,

@@ -16,6 +16,7 @@ const BookForm = ({
   publicationYear,
   publisher,
   isbn,
+  additionalInfo,
   onChange,
   onSubmit,
   onClickDelete,
@@ -103,6 +104,15 @@ const BookForm = ({
         readOnly={saving}
         pattern='.*[\w]+.*'
         maxLength={100} />
+
+      <InputField
+        type='textarea'
+        label={R.strings.additionalInfo}
+        name='additionalInfo'
+        value={additionalInfo}
+        onChange={onChange}
+        readOnly={saving}
+        pattern='.*[\w]+.*' />
 
       <div>
         <InputButton type='submit' text={saving ? (`${R.strings.saving}...`) : R.strings.saveBook} disabled={saving} />

@@ -26,7 +26,8 @@ class BookFormContainer extends Component {
       length: (book && book.length) ? book.length.toString() : '',
       publicationYear: (book && book.publicationYear) ? book.publicationYear.toString() : '',
       publisher: (book && book.publisher) || '',
-      isbn: (book && book.isbn) || ''
+      isbn: (book && book.isbn) || '',
+      additionalInfo: (book && book.additionalInfo) || ''
     }
 
     this.loadBook = this.loadBook.bind(this)
@@ -55,7 +56,8 @@ class BookFormContainer extends Component {
         length: book.length ? book.length.toString() : '',
         publicationYear: book.publicationYear ? book.publicationYear.toString() : '',
         publisher: book.publisher,
-        isbn: book.isbn
+        isbn: book.isbn,
+        additionalInfo: book.additionalInfo
       }))
     } else {
       this.setState(() => ({ redirect: true }))
@@ -70,13 +72,14 @@ class BookFormContainer extends Component {
   async handleSubmit (e) {
     e.preventDefault()
 
-    const { id, title, author, subject, length, publicationYear, publisher, isbn } = this.state
+    const { id, title, author, subject, length, publicationYear, publisher, isbn, additionalInfo } = this.state
     const book = {
       title: title.trim(),
       author: author.trim(),
       subject: subject.trim(),
       publisher: publisher.trim(),
       isbn: isbn.trim(),
+      additionalInfo: additionalInfo.trim(),
       length,
       publicationYear
     }
