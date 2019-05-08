@@ -8,7 +8,7 @@
 .input-field input,
 .input-field select,
 .input-field textarea {
-  background-color: #f6f6f6;
+  background-color: transparent;
   border: none;
   border-bottom: 2px solid #e6e6e6;
   font-size: 14px;
