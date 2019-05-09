@@ -4,6 +4,7 @@
 }
 #book-form header h2 {
   display: inline-block;
+  margin-bottom: 12px;
 }
 #book-form header .action-items {
   text-align: right;
@@ -13,7 +14,7 @@
   margin: -7.5px -10.5px 0 0;
 }
 #book-form form {
-  background-color: #fbfbfb;
+  background-color: #ffffff;
   border-radius: 2px;
   display: grid;
   grid-gap: 15px;

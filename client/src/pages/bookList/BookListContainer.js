@@ -11,12 +11,16 @@ class BookListContainer extends Component {
     this.fetcher = this.props.fetcher
 
     this.state = {
-      books: []
+      books: [],
+      loading: false
     }
   }
 
   async componentDidMount () {
+    this.setState(() => ({ loading: true }))
     const res = await this.fetcher.get('books')
+    this.setState(() => ({ loading: false }))
+
     if (res.ok) {
       const books = await res.json()
       this.setState(() => ({ books }))
@@ -25,7 +29,7 @@ class BookListContainer extends Component {
 
   render () {
     return (
-      <BookList R={this.props.R} books={this.state.books} />
+      <BookList R={this.props.R} books={this.state.books} loading={this.state.loading} />
     )
   }
 }

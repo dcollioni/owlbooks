@@ -36,5 +36,7 @@
   "accountCreated": "Account created",
   "emailAlreadyRegistered": "This e-mail was already registered. Please try to sign in.",
   "failedToSignin": "Failed to sign in. Please try again.",
-  "wantToSignOut": "Do you want to sign out?"
+  "wantToSignOut": "Do you want to sign out?",
+  "emptyBooks": "Hmm, it looks like your library is empty. Why don't you try",
+  "addingABook": "adding a book"
 }
