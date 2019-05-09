@@ -8,7 +8,7 @@ import './BookList.css'
 const BookList = ({ R, books, loading }) => (
   <div id='book-list'>
     <header>
-      <h2>{R.strings.myBooks}</h2>
+      <h2>{R.strings.yourLibrary}</h2>
     </header>
     {!loading && books.length === 0
       ?
