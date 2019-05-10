@@ -16,13 +16,14 @@ const Signin = ({ R, onGoogleSignInSuccess, onGoogleSignInFailure, onFacebookSig
         clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
         onSuccess={onGoogleSignInSuccess}
         onFailure={onGoogleSignInFailure}
+        buttonText={R.strings.signInWithGoogle}
         cookiePolicy={'single_host_origin'} />
 
       <FacebookLogin
         appId={process.env.REACT_APP_FACEBOOK_APP_ID}
         fields='name,email,picture'
         icon='fa-facebook'
-        textButton='Sign in with Facebook'
+        textButton={R.strings.signInWithFacebook}
         cssClass='facebook-button'
         callback={onFacebookSignInSuccess}
         onFailure={onFacebookSignInFailure} />

@@ -15,6 +15,7 @@ import AppContainer from './pages/app/AppContainer'
 import BookListContainer from './pages/bookList/BookListContainer'
 import BookFormContainer from './pages/bookForm/BookFormContainer'
 import SigninContainer from './pages/signin/SigninContainer'
+import SettingsContainer from './pages/settings/SettingsContainer'
 
 const routes = (
   <Provider store={store}>
@@ -25,6 +26,7 @@ const routes = (
             <Route path='/signin' component={SigninContainer} exact />
             <AuthorizedRoute path='/' component={BookListContainer} exact />
             <AuthorizedRoute path='/books/:id' component={BookFormContainer} exact />
+            <AuthorizedRoute path='/settings' component={SettingsContainer} exact />
             <Redirect from='*' to='/' />
           </Switch>
         </AppContainer>

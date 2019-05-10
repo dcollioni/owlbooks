@@ -25,6 +25,8 @@
   "deleteBook": "Delete book",
   "confirmBookDeletion": "Do you confirm book deletion?",
   "signin": "Sign in",
+  "signInWithGoogle": "Sign in with Google",
+  "signInWithFacebook": "Sign in with Facebook",
   "createAccount": "Create account",
   "creatingAccount": "Creating account...",
   "createYourAccount": "Create your account",
@@ -39,5 +41,8 @@
   "failedToSignin": "Failed to sign in. Please try again.",
   "wantToSignOut": "Do you want to sign out?",
   "emptyBooks": "Hmm, it looks like your library is empty. Why don't you try",
-  "addingABook": "adding a book"
+  "addingABook": "adding a book",
+  "settings": "Settings",
+  "signedInWith": "Signed in with",
+  "signOut": "Sign out"
 }
