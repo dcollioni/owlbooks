@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import InputButton from './../components/inputButton/InputButton'
 import './Settings.css'
 
-const Settings = ({ R, user, onClickSignOut }) => (
+const Settings = ({ R, user, language, onClickSignOut, onClickLanguage }) => (
   <div id='settings'>
     <header>
       <h2>{R.strings.settings}</h2>
@@ -20,10 +20,21 @@ const Settings = ({ R, user, onClickSignOut }) => (
         <InputButton text={R.strings.signOut} onClick={onClickSignOut} />
       </div>
       <div className='language-info'>
-        <h3>{user.name}</h3>
-        <p className='provider'>
-          {R.strings.signedInWith} <span>{user.provider}</span>
-        </p>
+        <h3>{R.strings.language}</h3>
+        <ul>
+          <li>
+            <InputButton
+              text={R.strings.english}
+              onClick={() => onClickLanguage('en')}
+              className={`language ${language === 'en' ? 'selected' : ''}`} />
+          </li>
+          <li>
+            <InputButton
+              text={R.strings.portuguese}
+              onClick={() => onClickLanguage('pt-br')}
+              className={`language ${language === 'pt-br' ? 'selected' : ''}`} />
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -32,6 +43,7 @@ const Settings = ({ R, user, onClickSignOut }) => (
 Settings.propTypes = {
   R: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
+  language: PropTypes.string,
   onClickSignOut: PropTypes.func.isRequired
 }
 

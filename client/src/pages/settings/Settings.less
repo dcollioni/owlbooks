@@ -15,7 +15,7 @@
   .wrapper {
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 20px;
+    grid-gap: 10px;
 
     .user-info {
       background: @color-white;
@@ -52,7 +52,7 @@
       button {
         font-size: 12px;
         margin-top: 10px;
-        max-width: 200px;
+        max-width: 180px;
       }
     }
 
@@ -61,6 +61,46 @@
       border-radius: 2px;
       padding: 15px;
       .with-shadow();
+
+      h3 {
+        font-size: 15px;
+        margin: 0;
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          margin-top: 10px;
+
+          button {
+            background-color: @color-background;
+            background-repeat: no-repeat;
+            background-position: calc(100% - 5px) center;
+            background-size: 25px;
+            color: @color-text;
+            font-size: 12px;
+            max-width: 180px;
+            text-align: left;
+
+            &.selected {
+              background-image: url('/images/ic_check_purple.png');
+              color: @color-primary;
+              font-weight: bold;
+            }
+
+            &:hover, &:focus {
+              box-shadow: 0px 2px 3px rgba(0, 0, 0, .3);
+            }
+
+            &:active {
+              background-color: @color-background-dark;
+            }
+          }
+        }
+      }
     }
 
     @media screen and (min-width: @phone-width) {
@@ -77,10 +117,25 @@
           font-size: 13px;
         }
       }
+
+      .language-info {
+        h3 {
+          font-size: 16px;
+        }
+
+        ul {
+          li {
+            button {
+              font-size: 13px;
+            }
+          }
+        }
+      }
     }
 
     @media screen and (min-width: @desktop-width) {
       grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
 
       .user-info {
         display: grid;
@@ -109,56 +164,15 @@
           height: max-content;
         }
       }
-    }
-  }
 
-
-
-  form {
-    background-color: @color-white;
-    border-radius: 2px;
-    display: grid;
-    grid-gap: 15px;
-    margin: 10px 0;
-    padding: 20px;
-    .with-shadow();
-
-    button {
-      margin-top: 10px;
-    }
-
-    @media screen and (min-width: @phone-width) {
-      grid-template-columns: repeat(2, 1fr);
-
-      :nth-child(1),
-      :nth-child(2),
-      :nth-child(3),
-      :nth-child(6),
-      :nth-child(7),
-      :nth-child(8),
-      :nth-child(9) {
-        grid-column: span 2;
-      }
-
-      :nth-child(9) {
-        text-align: right;
-      }
-
-      button {
-        max-width: 150px;
-      }
-    }
-
-    @media screen and (min-width: @desktop-width) {
-      grid-template-columns: repeat(4, 1fr);
-
-      :nth-child(8),
-      :nth-child(9) {
-        grid-column: span 4;
-      }
-
-      button {
-        max-width: 180px;
+      .language-info {
+        ul {
+          li {
+            button {
+              font-size: 14px;
+            }
+          }
+        }
       }
     }
   }

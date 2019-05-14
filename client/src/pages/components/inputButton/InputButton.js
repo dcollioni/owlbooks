@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './InputButton.css'
 
-const InputButton = ({ type, text, disabled, onClick }) => (
+const InputButton = ({ type, text, disabled, className, onClick }) => (
   <button
-    className='input-button'
+    className={`input-button ${className}`}
     type={type || 'button'}
     disabled={disabled}
     onClick={onClick}>

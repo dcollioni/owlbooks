@@ -9,7 +9,7 @@
 #settings .wrapper {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 20px;
+  grid-gap: 10px;
 }
 #settings .wrapper .user-info {
   background: #ffffff;
@@ -42,13 +42,47 @@
 #settings .wrapper .user-info button {
   font-size: 12px;
   margin-top: 10px;
-  max-width: 200px;
+  max-width: 180px;
 }
 #settings .wrapper .language-info {
   background: #ffffff;
   border-radius: 2px;
   padding: 15px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+#settings .wrapper .language-info h3 {
+  font-size: 15px;
+  margin: 0;
+}
+#settings .wrapper .language-info ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#settings .wrapper .language-info ul li {
+  margin-top: 10px;
+}
+#settings .wrapper .language-info ul li button {
+  background-color: #f6f6f6;
+  background-repeat: no-repeat;
+  background-position: calc(95%) center;
+  background-size: 25px;
+  color: #303030;
+  font-size: 12px;
+  max-width: 180px;
+  text-align: left;
+}
+#settings .wrapper .language-info ul li button.selected {
+  background-image: url('/images/ic_check_purple.png');
+  color: #9c27b0;
+  font-weight: bold;
+}
+#settings .wrapper .language-info ul li button:hover,
+#settings .wrapper .language-info ul li button:focus {
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+}
+#settings .wrapper .language-info ul li button:active {
+  background-color: #e6e6e6;
 }
 @media screen and (min-width: 375px) {
   #settings .wrapper .user-info h3 {
@@ -60,10 +94,17 @@
   #settings .wrapper .user-info button {
     font-size: 13px;
   }
+  #settings .wrapper .language-info h3 {
+    font-size: 16px;
+  }
+  #settings .wrapper .language-info ul li button {
+    font-size: 13px;
+  }
 }
 @media screen and (min-width: 1280px) {
   #settings .wrapper {
     grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
   }
   #settings .wrapper .user-info {
     display: grid;
@@ -88,48 +129,7 @@
     margin-top: 0;
     height: max-content;
   }
-}
-#settings form {
-  background-color: #ffffff;
-  border-radius: 2px;
-  display: grid;
-  grid-gap: 15px;
-  margin: 10px 0;
-  padding: 20px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
-}
-#settings form button {
-  margin-top: 10px;
-}
-@media screen and (min-width: 375px) {
-  #settings form {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  #settings form :nth-child(1),
-  #settings form :nth-child(2),
-  #settings form :nth-child(3),
-  #settings form :nth-child(6),
-  #settings form :nth-child(7),
-  #settings form :nth-child(8),
-  #settings form :nth-child(9) {
-    grid-column: span 2;
-  }
-  #settings form :nth-child(9) {
-    text-align: right;
-  }
-  #settings form button {
-    max-width: 150px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  #settings form {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  #settings form :nth-child(8),
-  #settings form :nth-child(9) {
-    grid-column: span 4;
-  }
-  #settings form button {
-    max-width: 180px;
+  #settings .wrapper .language-info ul li button {
+    font-size: 14px;
   }
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Settings from './Settings'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { logout, showToast } from '../../actions'
+import { logout, changeLanguage } from '../../actions'
 const { confirm } = window
 
 class SettingsContainer extends Component {
@@ -15,6 +15,7 @@ class SettingsContainer extends Component {
     this.state = {}
 
     this.handleClickSignOut = this.handleClickSignOut.bind(this)
+    this.handleClickLanguage = this.handleClickLanguage.bind(this)
   }
 
   handleClickSignOut () {
@@ -25,8 +26,15 @@ class SettingsContainer extends Component {
     }
   }
 
+  handleClickLanguage (language) {
+    this.props.dispatch(changeLanguage(language))
+  }
+
   render () {
-    return <Settings {...this.props} {...this.state} onClickSignOut={this.handleClickSignOut} />
+    return <Settings {...this.props}
+      {...this.state}
+      onClickSignOut={this.handleClickSignOut}
+      onClickLanguage={this.handleClickLanguage} />
   }
 }
 
@@ -34,11 +42,13 @@ SettingsContainer.propTypes = {
   R: PropTypes.object.isRequired,
   fetcher: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  language: PropTypes.string
 }
 
-const stateToProps = ({ user }) => ({
-  user
+const stateToProps = ({ user, language }) => ({
+  user,
+  language
 })
 
 export default withRouter(connect(stateToProps)(SettingsContainer))
