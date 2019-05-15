@@ -49,7 +49,9 @@ function reducer (state = initialState, action) {
       }
 
     case REHYDRATE:
-      if (action.payload.settings && action.payload.settings.language === 'pt-br') {
+      if (action.payload &&
+        action.payload.settings &&
+        action.payload.settings.language === 'pt-br') {
         return {
           ...state,
           R: { strings: ptStrings }
