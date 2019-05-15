@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import InputButton from './../components/inputButton/InputButton'
 import './Settings.css'
 
-const Settings = ({ R, user, language, onClickSignOut, onClickLanguage }) => (
+const Settings = ({ R, user, settings, onClickSignOut, onClickLanguage }) => (
   <div id='settings'>
     <header>
       <h2>{R.strings.settings}</h2>
@@ -26,13 +26,13 @@ const Settings = ({ R, user, language, onClickSignOut, onClickLanguage }) => (
             <InputButton
               text={R.strings.english}
               onClick={() => onClickLanguage('en')}
-              className={`language ${language === 'en' ? 'selected' : ''}`} />
+              className={`language ${settings.language === 'en' ? 'selected' : ''}`} />
           </li>
           <li>
             <InputButton
               text={R.strings.portuguese}
               onClick={() => onClickLanguage('pt-br')}
-              className={`language ${language === 'pt-br' ? 'selected' : ''}`} />
+              className={`language ${settings.language === 'pt-br' ? 'selected' : ''}`} />
           </li>
         </ul>
       </div>
@@ -43,7 +43,7 @@ const Settings = ({ R, user, language, onClickSignOut, onClickLanguage }) => (
 Settings.propTypes = {
   R: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
-  language: PropTypes.string,
+  settings: PropTypes.object.isRequired,
   onClickSignOut: PropTypes.func.isRequired
 }
 

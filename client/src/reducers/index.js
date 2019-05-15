@@ -12,7 +12,7 @@ import { REHYDRATE } from 'redux-persist'
 
 const initialState = {
   R: { strings: enStrings },
-  language: 'en',
+  settings: { language: 'en' },
   user: null,
   showToast: 0,
   toastMessage: ''
@@ -44,20 +44,15 @@ function reducer (state = initialState, action) {
 
       return {
         ...state,
-        language: action.language,
+        settings: { language: action.language },
         R: { strings }
       }
 
     case REHYDRATE:
-      if (action.payload.user) {
+      if (action.payload.settings && action.payload.settings.language === 'pt-br') {
         return {
           ...state,
-          user: action.payload.user
-        }
-      } else if (action.payload.language) {
-        return {
-          ...state,
-          language: action.payload.language
+          R: { strings: ptStrings }
         }
       } else {
         return state

@@ -13,7 +13,7 @@ const encryptor = createEncryptor({
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['user', 'language'],
+  whitelist: ['user', 'settings'],
   transforms: [
     encryptor
   ]

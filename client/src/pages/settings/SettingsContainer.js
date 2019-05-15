@@ -43,12 +43,12 @@ SettingsContainer.propTypes = {
   fetcher: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
-  language: PropTypes.string
+  settings: PropTypes.object.isRequired
 }
 
-const stateToProps = ({ user, language }) => ({
+const stateToProps = ({ user, settings }) => ({
   user,
-  language
+  settings
 })
 
 export default withRouter(connect(stateToProps)(SettingsContainer))

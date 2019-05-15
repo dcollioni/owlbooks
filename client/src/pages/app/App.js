@@ -4,19 +4,19 @@ import { Link } from 'react-router-dom'
 import ToastContainer from './../components/toast/ToastContainer'
 import './App.css'
 
-const App = ({ children, user, onClickUser }) => {
+const App = ({ children, user }) => {
   return (
     <main className={`app ${!user ? 'unauthorized' : ''}`}>
       <header className='app-header'>
         <h1 className='app-title'>
           <Link to='/'>owlbooks</Link>
         </h1>
-        {user && 
+        {user &&
           <span className='user'>
-            <span className='wrapper' onClick={onClickUser}>
+            <Link className='wrapper' to='/settings'>
               <span className='picture' style={{backgroundImage: `url(${user.picture})`}}></span>
               <span className='name'>{user.name}</span>
-            </span>
+            </Link>
           </span>
         }
       </header>
