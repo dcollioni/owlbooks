@@ -75,6 +75,7 @@ main > header .user .wrapper .name {
     transition: all .1s;
   }
   main > header .user .wrapper .name {
+    color: #303030;
     display: inline-block;
     font-size: 14px;
     margin: 25px 0 25px 10px;
