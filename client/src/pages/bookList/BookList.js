@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import BookListItemContainer from './components/BookListItemContainer'
 import FloatingButton from './../components/floatingButton/FloatingButton'
 import './BookList.css'
@@ -10,21 +9,17 @@ const BookList = ({ R, books, loading }) => (
     <header>
       <h2>{R.strings.yourLibrary}</h2>
     </header>
-    {!loading && books.length === 0
+    <div className='book-list'>
+      {!loading && books.length === 0
       ?
-      <div className='book-list-placeholder'>
-        <p>
-          {R.strings.emptyBooks} <Link to='/books/new'>{R.strings.addingABook}</Link>?
-        </p>
-      </div>
+        <BookListItemContainer key={'placeholder'} placeholder={R.strings.addYourFirstBook} />
       :
-      <div className='book-list'>
-        {books.map(book =>
+        books.map(book =>
           <BookListItemContainer key={book._id} book={book} />
-        )}
-      </div>
-    }
-    <FloatingButton icon='add' url='/books/new' title='Add book' />
+        )
+      }
+    </div>
+    <FloatingButton icon='add' url='/books/new' title={R.strings.addNewBook} />
   </div>
 )
 

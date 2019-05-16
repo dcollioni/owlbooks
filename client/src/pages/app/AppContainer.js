@@ -3,13 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import App from './App'
-const { confirm } = window
 
 class AppContainer extends Component {
-  constructor (props) {
-    super(props)
-  }
-
   render () {
     return (
       <App {...this.props} />

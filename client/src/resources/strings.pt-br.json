@@ -23,7 +23,7 @@
   "bookSaved": "Livro salvo",
   "bookDeleted": "Livro excluído",
   "deleteBook": "Excluir livro",
-  "confirmBookDeletion": "Você confirma a exclusão do livro?",
+  "confirmBookDeletion": "Confirma a exclusão do livro?",
   "signin": "Conectar",
   "signInWithGoogle": "Conectar com Google",
   "signInWithFacebook": "Conectar com Facebook",
@@ -40,12 +40,11 @@
   "emailAlreadyRegistered": "Esse e-mail já foi cadastrado. Tente conectar-se.",
   "failedToSignin": "Erro ao conectar. Tente novamente.",
   "wantToSignOut": "Você quer se desconectar?",
-  "emptyBooks": "Hmm, parece que sua biblioteca está vazia. Por que você não começa",
-  "addingABook": "adicionando um livro",
   "settings": "Configurações",
   "signedInWith": "Conectado com",
   "signOut": "Desconectar",
   "language": "Idioma",
   "english": "Inglês",
-  "portuguese": "Português"
+  "portuguese": "Português (BR)",
+  "addYourFirstBook": "Adicione seu primeiro livro"
 }

@@ -15,7 +15,7 @@
 #signin .providers button {
   display: block;
   margin-bottom: 20px;
-  width: 200px;
+  width: 220px;
 }
 #signin .providers .facebook-button {
   background: #4267b2;
@@ -30,11 +30,12 @@
   margin-bottom: 0;
   padding: 12px;
   padding-left: 25px;
+  position: relative;
   text-align: center;
 }
 #signin .providers .facebook-button i {
   font-size: 20px;
-  margin-left: -25px;
+  left: 12px;
   margin-top: -1px;
   position: absolute;
 }
