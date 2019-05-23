@@ -3,8 +3,8 @@ const router = new Router()
 const bookService = require('./../services/bookService')
 
 router.get('/', async (req, res) => {
-  const { userId } = req
-  const books = await bookService.findAll(userId)
+  const { userId, query } = req
+  const books = await bookService.findAll(userId, query.page)
   res.json(books)
 })
 

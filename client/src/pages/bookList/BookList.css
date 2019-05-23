@@ -84,3 +84,32 @@
     padding-left: 35px;
   }
 }
+#book-list .pagination {
+  padding: 0;
+  list-style: none;
+  margin-top: 50px;
+  text-align: center;
+}
+#book-list .pagination li {
+  display: inline-block;
+}
+#book-list .pagination li a {
+  transition: box-shadow 300ms;
+  padding: 10px 15px;
+  outline: none;
+}
+#book-list .pagination li:not(.disabled):not(.break).selected a,
+#book-list .pagination li:not(.disabled):not(.break):hover a {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+}
+#book-list .pagination li:not(.disabled):not(.break) a {
+  cursor: pointer;
+  background-color: #ffffff;
+}
+#book-list .pagination li.disabled,
+#book-list .pagination li.break {
+  pointer-events: none;
+}
+#book-list .pagination li + li {
+  margin-left: 15px;
+}

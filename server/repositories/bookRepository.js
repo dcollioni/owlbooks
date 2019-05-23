@@ -1,9 +1,15 @@
 const Book = require('./../models/Book')
 
-const findAll = (userId) => {
-  return Book.find({ userId })
-    .select({ userId: 0, createdAt: 0, __v: 0 })
-    .sort({ title: 1 })
+const findAll = (userId, page) => {
+
+  return Book.paginate({ userId }, { page: page, limit: 10 })
+    .then(response => {
+    // response struc: {docs: array, total: int,limit: int, page: int, pages: int}
+    return response
+  })
+
+  // TODO: Treat error
+  .catch((err) => console.log(err));
 }
 
 const findById = (_id, userId) => {

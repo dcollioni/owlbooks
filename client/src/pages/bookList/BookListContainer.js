@@ -11,14 +11,30 @@ class BookListContainer extends Component {
     this.fetcher = this.props.fetcher
 
     this.state = {
-      books: [],
+      books: {
+        docs: [],
+        limit: 5,
+        page: 1,
+        pages: 0,
+        total: 0
+      },
       loading: false
     }
   }
 
-  async componentDidMount () {
+  componentDidMount () {
+    this.setPage(0);
+  }
+
+  onPageChange = (page) => {
+    this.setPage(page.selected)
+  }
+
+  setPage = async (page) => {
     this.setState(() => ({ loading: true }))
-    const res = await this.fetcher.get('books')
+    
+    // Back-end starts on 1, front-end starts on 0
+    const res = await this.fetcher.get(`books?page=${++page}`)
     this.setState(() => ({ loading: false }))
 
     if (res.ok) {
@@ -29,7 +45,8 @@ class BookListContainer extends Component {
 
   render () {
     return (
-      <BookList R={this.props.R} books={this.state.books} loading={this.state.loading} />
+      <BookList R={this.props.R} books={this.state.books} loading={this.state.loading} 
+        onPageChange={this.onPageChange} />
     )
   }
 }
