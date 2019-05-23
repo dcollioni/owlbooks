@@ -4,7 +4,7 @@ const findAll = (userId, page) => {
 
   return Book.paginate({ userId }, { page: page, limit: 10 })
     .then(response => {
-    // response struc: {docs: array, total: int,limit: int, page: int, pages: int}
+    // response struct: {docs: array, total: int,limit: int, page: int, pages: int}
     return response
   })
 

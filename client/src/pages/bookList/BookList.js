@@ -35,7 +35,8 @@ const BookList = ({ R, books, loading, onPageChange }) => (
 BookList.propTypes = {
   R: PropTypes.object.isRequired,
   books: PropTypes.object.isRequired,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  onPageChange: PropTypes.func.isRequired,
 }
 
 export default BookList
