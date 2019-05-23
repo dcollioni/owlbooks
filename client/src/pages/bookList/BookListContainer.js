@@ -11,7 +11,9 @@ class BookListContainer extends Component {
     this.fetcher = this.props.fetcher
 
     this.state = {
-      books: {},
+      books: {
+        docs: []
+      },
       loading: false
     }
   }
