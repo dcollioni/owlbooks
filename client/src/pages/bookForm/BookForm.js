@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './BookForm.css'
-import InputField from './../components/inputField/InputField'
-import InputButton from './../components/inputButton/InputButton'
-import ActionButton from './../components/actionButton/ActionButton'
+import { InputField, InputButton, ActionButton } from './../components'
 
 const BookForm = ({
   R,

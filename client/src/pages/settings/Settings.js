@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import InputButton from './../components/inputButton/InputButton'
+import { InputButton } from './../components'
 import './Settings.css'
 
 const Settings = ({ R, user, settings, onClickSignOut, onClickLanguage }) => (
