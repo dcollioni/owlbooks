@@ -18,10 +18,6 @@ class BookListContainer extends Component {
     }
   }
 
-  componentDidMount () {
-    this.loadMore()
-  }
-
   loadMore = async () => {
     const res = await this.fetcher.get(`books?page=${this.state.nextPage}`)
 
