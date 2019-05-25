@@ -12,7 +12,7 @@ const BookList = ({ R, books, hasNextPage, loadMore }) => (
       <h2>{R.strings.yourLibrary}</h2>
     </header>
     <InfiniteScroll className='book-list' hasMore={hasNextPage}
-      loadMore={loadMore} threshold={500}>
+      loadMore={loadMore}>
       {
         !hasNextPage && books.length === 0
         ?
@@ -33,6 +33,7 @@ BookList.propTypes = {
   R: PropTypes.object.isRequired,
   books: PropTypes.array.isRequired,
   hasNextPage: PropTypes.bool.isRequired,
+  loadMore: PropTypes.func.isRequired,
 }
 
 export default BookList
