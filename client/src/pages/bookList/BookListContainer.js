@@ -11,42 +11,38 @@ class BookListContainer extends Component {
     this.fetcher = this.props.fetcher
 
     this.state = {
-      books: {
-        docs: [],
-        limit: 5,
-        page: 1,
-        pages: 0,
-        total: 0
-      },
+      books: [],
+      hasNextPage: false,
+      nextPage: 1,
       loading: false
     }
   }
 
   componentDidMount () {
-    this.setPage(0);
+    this.loadMore()
   }
 
-  onPageChange = (page) => {
-    this.setPage(page.selected)
-  }
+  loadMore = async () => {
+    const { state } = this
 
-  setPage = async (page) => {
     this.setState(() => ({ loading: true }))
-    
-    // Back-end starts on 1, front-end starts on 0
-    const res = await this.fetcher.get(`books?page=${++page}`)
-    this.setState(() => ({ loading: false }))
+
+    const res = await this.fetcher.get(`books?page=${state.nextPage}`)
 
     if (res.ok) {
-      const books = await res.json()
-      this.setState(() => ({ books }))
+      let { books, hasNextPage, nextPage } = await res.json()
+      books = [...state.books, ...books]
+
+      this.setState({ books, hasNextPage, nextPage })
     }
   }
 
   render () {
+    const { books, loading, hasNextPage } = this.state;
+
     return (
-      <BookList R={this.props.R} books={this.state.books} loading={this.state.loading} 
-        onPageChange={this.onPageChange} />
+      <BookList R={this.props.R} books={books} loading={loading} 
+        loadMore={this.loadMore} hasNextPage={hasNextPage}/>
     )
   }
 }

@@ -1,13 +1,15 @@
 const Book = require('./../models/Book')
 
 const findAll = (userId, page) => {
+  const options = {
+    page,
+    limit: 20,
+    sort: { title: 1 },
+    customLabels: { docs: 'books' },
+  }
 
-  return Book.paginate({ userId }, { page: page, limit: 10 })
-    .then(response => {
-    // response struc: {docs: array, total: int,limit: int, page: int, pages: int}
-    return response
-  })
-
+  return Book.paginate({ userId }, options)
+    .then(response => response)
   // TODO: Treat error
   .catch((err) => console.log(err));
 }
