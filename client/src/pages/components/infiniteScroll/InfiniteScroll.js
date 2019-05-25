@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-
 import { findDOMNode } from 'react-dom'
-
-import './InfiniteScroll.css'
 
 class InfiniteScroll extends Component {
 
@@ -70,6 +67,14 @@ class InfiniteScroll extends Component {
   }
 }
 
+InfiniteScroll.defaultProps = {
+  threshold: 500
+}
 
-InfiniteScroll.propTypes = {}
+InfiniteScroll.propTypes = {
+  loadMore: PropTypes.func.isRequired,
+  hasMore: PropTypes.bool.isRequired,
+  threshold: PropTypes.number,
+}
+
 export default InfiniteScroll
