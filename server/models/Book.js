@@ -1,5 +1,6 @@
+const mongoosePaginate = require('mongoose-paginate-v2')
+
 const { mongoose } = require('./../database/connection')
-const mongoosePaginate = require('mongoose-paginate')
 const ObjectId = mongoose.SchemaTypes.ObjectId
 
 const BookSchema = new mongoose.Schema({
