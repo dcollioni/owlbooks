@@ -6,6 +6,7 @@ const findAll = (userId, page) => {
     limit: 20,
     sort: { title: 1 },
     customLabels: { docs: 'books' },
+    select: { userId: 0, createdAt: 0, __v: 0 },
   }
 
   return Book.paginate({ userId }, options)
