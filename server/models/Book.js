@@ -1,7 +1,9 @@
+const mongoosePaginate = require('mongoose-paginate-v2')
+
 const { mongoose } = require('./../database/connection')
 const ObjectId = mongoose.SchemaTypes.ObjectId
 
-const Book = mongoose.model('Book', {
+const BookSchema = new mongoose.Schema({
   userId: {
     type: ObjectId,
     required: true,
@@ -53,5 +55,8 @@ const Book = mongoose.model('Book', {
     default: Date.now
   }
 })
+
+BookSchema.plugin(mongoosePaginate)
+const Book = mongoose.model('Book', BookSchema)
 
 module.exports = Book

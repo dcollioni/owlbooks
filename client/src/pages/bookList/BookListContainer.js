@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import BookList from './BookList'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+
+import BookList from './BookList'
 
 class BookListContainer extends Component {
   constructor (props) {
@@ -12,24 +13,28 @@ class BookListContainer extends Component {
 
     this.state = {
       books: [],
-      loading: false
+      hasNextPage: true,
+      nextPage: 1,
     }
   }
 
-  async componentDidMount () {
-    this.setState(() => ({ loading: true }))
-    const res = await this.fetcher.get('books')
-    this.setState(() => ({ loading: false }))
+  loadMore = async () => {
+    const res = await this.fetcher.get(`books?page=${this.state.nextPage}`)
 
     if (res.ok) {
-      const books = await res.json()
-      this.setState(() => ({ books }))
+      let { books, hasNextPage, nextPage } = await res.json()
+      books = [...this.state.books, ...books]
+
+      this.setState({ books, hasNextPage, nextPage })
     }
   }
 
   render () {
+    const { books, hasNextPage } = this.state;
+
     return (
-      <BookList R={this.props.R} books={this.state.books} loading={this.state.loading} />
+      <BookList R={this.props.R} books={books} loadMore={this.loadMore}
+        hasNextPage={hasNextPage}/>
     )
   }
 }

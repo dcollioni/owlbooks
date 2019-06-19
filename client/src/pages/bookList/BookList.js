@@ -1,32 +1,39 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import BookListItemContainer from './components/BookListItemContainer'
 import FloatingButton from './../components/floatingButton/FloatingButton'
+import InfiniteScroll from './../components/infiniteScroll/InfiniteScroll'
 import './BookList.css'
 
-const BookList = ({ R, books, loading }) => (
+const BookList = ({ R, books, hasNextPage, loadMore }) => (
   <div id='book-list'>
     <header>
       <h2>{R.strings.yourLibrary}</h2>
     </header>
-    <div className='book-list'>
-      {!loading && books.length === 0
-      ?
-        <BookListItemContainer key={'placeholder'} placeholder={R.strings.addYourFirstBook} />
-      :
+    <InfiniteScroll className='book-list' hasMore={hasNextPage}
+      loadMore={loadMore}>
+      {
+        !hasNextPage && books.length === 0
+        ?
+        <BookListItemContainer key={'placeholder'}
+          placeholder={R.strings.addYourFirstBook} />
+        :
         books.map(book =>
           <BookListItemContainer key={book._id} book={book} />
         )
       }
-    </div>
+    </InfiniteScroll>
     <FloatingButton icon='add' url='/books/new' title={R.strings.addNewBook} />
+
   </div>
 )
 
 BookList.propTypes = {
   R: PropTypes.object.isRequired,
   books: PropTypes.array.isRequired,
-  loading: PropTypes.bool.isRequired
+  hasNextPage: PropTypes.bool.isRequired,
+  loadMore: PropTypes.func.isRequired,
 }
 
 export default BookList
