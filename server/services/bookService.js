@@ -1,7 +1,7 @@
 const bookRepository = require('./../repositories/bookRepository')
 
-const findAll = (userId) => {
-  return bookRepository.findAll(userId)
+const findAll = (userId, page) => {
+  return bookRepository.findAll(userId, page)
 }
 
 const findById = (id, userId) => {
