@@ -30,11 +30,8 @@ class BookListContainer extends Component {
   }
 
   render () {
-    const { books, hasNextPage } = this.state;
-
     return (
-      <BookList R={this.props.R} books={books} loadMore={this.loadMore}
-        hasNextPage={hasNextPage}/>
+      <BookList {...this.props} {...this.state} loadMore={this.loadMore}/>
     )
   }
 }

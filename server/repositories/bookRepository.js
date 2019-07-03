@@ -10,9 +10,6 @@ const findAll = (userId, page) => {
   }
 
   return Book.paginate({ userId }, options)
-    .then(response => response)
-  // TODO: Treat error
-  .catch((err) => console.log(err));
 }
 
 const findById = (_id, userId) => {
