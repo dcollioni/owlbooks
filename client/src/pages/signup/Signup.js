@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './Signup.css'
-import InputField from '../components/inputField/InputField'
-import InputButton from '../components/inputButton/InputButton'
+import { InputField, InputButton } from '../components'
 import { Link } from 'react-router-dom'
 
 const Signup = ({ R, firstName, lastName, email, password, password2, passwordPattern, onChange, onSubmit, loading }) => (

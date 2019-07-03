@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import BookListItemContainer from './components/BookListItemContainer'
-import FloatingButton from './../components/floatingButton/FloatingButton'
-import Loader from './../components/listLoader/ListLoader'
+import { FloatingButton, ListLoader } from './../components'
 import InfiniteScroll from 'react-infinite-scroller'
 import './BookList.css'
 
@@ -12,7 +10,7 @@ const BookList = ({ R, books, hasNextPage, loadMore }) => (
     <header>
       <h2>{R.strings.yourLibrary}</h2>
     </header>
-    <InfiniteScroll className='book-list' pageStart={1} hasMore={hasNextPage} loadMore={loadMore} loader={<Loader key={0} />}>
+    <InfiniteScroll className='book-list' pageStart={1} hasMore={hasNextPage} loadMore={loadMore} loader={<ListLoader key={0} />}>
       {
         (!hasNextPage && books.length === 0)
         ?
