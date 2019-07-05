@@ -1,3 +1,5 @@
+const bookRepository = require('./../repositories/bookRepository')
+
 const beforeInsert = async (book) => {
   if (!book) {
     return error('book cannot be null')
@@ -39,6 +41,11 @@ const beforeInsert = async (book) => {
 
   if (book.isbn && book.isbn.length > 100) {
     return error('isbn max length is 100')
+  }
+
+  const count = await bookRepository.count(book.userId)
+  if (count >= 100) {
+    return error('books limit per user is 100')
   }
 
   return success()

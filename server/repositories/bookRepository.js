@@ -43,10 +43,15 @@ const remove = async (id, userId) => {
   return book.remove()
 }
 
+const count = (userId) => {
+  return Book.countDocuments({ userId })
+}
+
 module.exports = {
   findAll,
   findById,
   insert,
   update,
-  remove
+  remove,
+  count
 }

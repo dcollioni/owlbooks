@@ -1,8 +1,13 @@
 const assert = require('assert')
-const { describe, it } = require('mocha')
+const { describe, it, afterEach } = require('mocha')
+const sinon = require('sinon')
 const bookValidator = require('./../../../server/validators/bookValidator')
+const bookRepository = require('./../../../server/repositories/bookRepository')
 
 describe('bookValidator', () => {
+  afterEach(() => {
+    sinon.restore()
+  })
   describe('beforeInsert', () => {
     it('should return error when book is null', async () => {
       const book = null
@@ -131,6 +136,44 @@ describe('bookValidator', () => {
       assert.strictEqual(isValid, false)
       assert.strictEqual(message, 'isbn max length is 100')
     })
+    it('should return error when books count by user is equal to 100', async () => {
+      const book = {
+        userId: 'abc123',
+        title: 'abc123',
+        author: 'abc123',
+        subject: 'abc123',
+        length: 0,
+        publicationYear: 9999,
+        publisher: 'abc123',
+        isbn: 'abc123'
+      }
+
+      sinon.stub(bookRepository, 'count').resolves(100)
+
+      const { isValid, message } = await bookValidator.beforeInsert(book)
+
+      assert.strictEqual(isValid, false)
+      assert.strictEqual(message, 'books limit per user is 100')
+    })
+    it('should return error when books count by user is greater than 100', async () => {
+      const book = {
+        userId: 'abc123',
+        title: 'abc123',
+        author: 'abc123',
+        subject: 'abc123',
+        length: 0,
+        publicationYear: 9999,
+        publisher: 'abc123',
+        isbn: 'abc123'
+      }
+
+      sinon.stub(bookRepository, 'count').resolves(101)
+
+      const { isValid, message } = await bookValidator.beforeInsert(book)
+
+      assert.strictEqual(isValid, false)
+      assert.strictEqual(message, 'books limit per user is 100')
+    })
     it('should return success when book is valid', async () => {
       const book = {
         userId: 'abc123',
@@ -142,6 +185,9 @@ describe('bookValidator', () => {
         publisher: 'abc123',
         isbn: 'abc123'
       }
+
+      sinon.stub(bookRepository, 'count').resolves(0)
+
       const { isValid, message } = await bookValidator.beforeInsert(book)
 
       assert.strictEqual(isValid, true)
