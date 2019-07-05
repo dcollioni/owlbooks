@@ -14,26 +14,27 @@ class BookListContainer extends Component {
     this.state = {
       books: [],
       hasNextPage: true,
-      nextPage: 1
+      nextPage: 1,
+      listProgress: 0
     }
 
-    this.loadMore = this.loadMore.bind(this)
+    this.loadBooks = this.loadBooks.bind(this)
   }
 
-  async loadMore () {
+  async loadBooks () {
     const res = await this.fetcher.get(`books?page=${this.state.nextPage}`)
 
     if (res.ok) {
-      let { books, hasNextPage, nextPage } = await res.json()
+      let { books, hasNextPage, nextPage, totalDocs } = await res.json()
       books = [...this.state.books, ...books]
 
-      this.setState({ books, hasNextPage, nextPage })
+      this.setState({ books, hasNextPage, nextPage, listProgress: totalDocs })
     }
   }
 
   render () {
     return (
-      <BookList {...this.props} {...this.state} loadMore={this.loadMore} />
+      <BookList {...this.props} {...this.state} loadBooks={this.loadBooks}/>
     )
   }
 }
