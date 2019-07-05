@@ -22,7 +22,7 @@ class SettingsContainer extends Component {
     const confirmSignOut = confirm(this.props.R.strings.wantToSignOut)
 
     if (confirmSignOut) {
-      this.props.dispatch(logout());
+      this.props.dispatch(logout())
     }
   }
 

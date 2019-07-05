@@ -13,10 +13,8 @@ const BookList = ({ R, books, hasNextPage, loadMore }) => (
     <InfiniteScroll className='book-list' pageStart={1} hasMore={hasNextPage} loadMore={loadMore} loader={<ListLoader key={0} />}>
       {
         (!hasNextPage && books.length === 0)
-        ?
-          <BookListItemContainer key={'placeholder'} placeholder={R.strings.addYourFirstBook} />
-        :
-          books.map(book =>
+          ? <BookListItemContainer key={'placeholder'} placeholder={R.strings.addYourFirstBook} />
+          : books.map(book =>
             <BookListItemContainer key={book._id} book={book} />
           )
       }
@@ -30,7 +28,7 @@ BookList.propTypes = {
   R: PropTypes.object.isRequired,
   books: PropTypes.array.isRequired,
   hasNextPage: PropTypes.bool.isRequired,
-  loadMore: PropTypes.func.isRequired,
+  loadMore: PropTypes.func.isRequired
 }
 
 export default BookList

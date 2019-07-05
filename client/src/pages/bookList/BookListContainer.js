@@ -14,11 +14,11 @@ class BookListContainer extends Component {
     this.state = {
       books: [],
       hasNextPage: true,
-      nextPage: 1,
+      nextPage: 1
     }
   }
 
-  loadMore = async () => {
+  async loadMore () {
     const res = await this.fetcher.get(`books?page=${this.state.nextPage}`)
 
     if (res.ok) {
@@ -31,7 +31,7 @@ class BookListContainer extends Component {
 
   render () {
     return (
-      <BookList {...this.props} {...this.state} loadMore={this.loadMore}/>
+      <BookList {...this.props} {...this.state} loadMore={this.loadMore} />
     )
   }
 }

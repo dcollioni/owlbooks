@@ -15,7 +15,7 @@ class AppContainer extends Component {
 AppContainer.propTypes = {
   R: PropTypes.object.isRequired,
   children: PropTypes.object.isRequired,
-  user: PropTypes.object,
+  user: PropTypes.object
 }
 
 const stateToProps = ({ R, user }) => ({

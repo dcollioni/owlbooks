@@ -5,9 +5,9 @@ import BookListItemPlaceholder from './BookListItemPlaceholder'
 
 class BookListItemContainer extends Component {
   render () {
-    return this.props.placeholder ?
-      <BookListItemPlaceholder text={this.props.placeholder} /> :
-      <BookListItem {...this.props} />
+    return this.props.placeholder
+      ? <BookListItemPlaceholder text={this.props.placeholder} />
+      : <BookListItem {...this.props} />
   }
 }
 

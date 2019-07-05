@@ -124,9 +124,9 @@ class BookFormContainer extends Component {
   }
 
   render () {
-    return this.state.redirect ?
-      <Redirect to='/books' /> :
-      <BookForm
+    return this.state.redirect
+      ? <Redirect to='/books' />
+      : <BookForm
         {...this.props}
         {...this.state}
         onChange={this.handleChange}
@@ -138,7 +138,7 @@ class BookFormContainer extends Component {
 BookFormContainer.propTypes = {
   R: PropTypes.object.isRequired,
   fetcher: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired
 }
 
 const stateToProps = () => ({
