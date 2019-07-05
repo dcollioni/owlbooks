@@ -11,7 +11,7 @@ class SigninContainer extends Component {
     super(props)
 
     this.state = {
-      success: !!props.user,
+      success: !!props.user
     }
 
     this.handleGoogleSignInSuccess = this.handleGoogleSignInSuccess.bind(this)

@@ -10,7 +10,7 @@ const Settings = ({ R, user, settings, onClickSignOut, onClickLanguage }) => (
     </header>
     <div className='wrapper'>
       <div className='user-info'>
-        <div className='picture' style={{backgroundImage: `url(${user.picture})`}} />
+        <div className='picture' style={{ backgroundImage: `url(${user.picture})` }} />
         <div className='info'>
           <h3>{user.name}</h3>
           <p className='provider'>

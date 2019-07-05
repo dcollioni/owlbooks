@@ -6,14 +6,13 @@ const InputField = ({ type, name, label, value, dataListItems, onChange, ...prop
   <label className='input-field'>
     <span>{label}</span>
 
-    {type === 'textarea' ?
-      <textarea
+    {type === 'textarea'
+      ? <textarea
         name={name}
         value={value}
         onChange={onChange}
         {...props} />
-      :
-      <input
+      : <input
         type={type || 'text'}
         name={name}
         value={value}

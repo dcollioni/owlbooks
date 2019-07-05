@@ -35,7 +35,7 @@ const User = mongoose.model('User', {
     lowercase: true,
     validate: {
       validator: (value) => {
-        const emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/
+        const emailRegex = /^([\w-.]+@([\w-]+\.)+[\w-]{2,4})?$/
         return emailRegex.test(value)
       },
       message: 'e-mail is not valid'

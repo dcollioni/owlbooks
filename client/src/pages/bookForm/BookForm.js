@@ -18,106 +18,107 @@ const BookForm = ({
   onChange,
   onSubmit,
   onClickDelete,
-  saving }) => (
-  <div id='book-form'>
-    <header>
-      <h2>{pageTitle}</h2>
-      <nav className='action-items'>
-        {id &&
-          <ActionButton icon='delete' title={R.strings.deleteBook} onClick={onClickDelete} />
-        }
-      </nav>
-    </header>
-    <form method='post' action='/' onSubmit={onSubmit}>
-      <InputField
-        label={R.strings.title}
-        name='title'
-        value={title}
-        onChange={onChange}
-        readOnly={saving}
-        required
-        maxLength={100}
-        pattern='.*[\w]+.*'
-        autoFocus />
+  saving }) =>
+  (
+    <div id='book-form'>
+      <header>
+        <h2>{pageTitle}</h2>
+        <nav className='action-items'>
+          {id &&
+            <ActionButton icon='delete' title={R.strings.deleteBook} onClick={onClickDelete} />
+          }
+        </nav>
+      </header>
+      <form method='post' action='/' onSubmit={onSubmit}>
+        <InputField
+          label={R.strings.title}
+          name='title'
+          value={title}
+          onChange={onChange}
+          readOnly={saving}
+          required
+          maxLength={100}
+          pattern='.*[\w]+.*'
+          autoFocus />
 
-      <InputField
-        label={R.strings.author}
-        name='author'
-        value={author}
-        onChange={onChange}
-        readOnly={saving}
-        pattern='.*[\w]+.*'
-        required
-        maxLength={100} />
+        <InputField
+          label={R.strings.author}
+          name='author'
+          value={author}
+          onChange={onChange}
+          readOnly={saving}
+          pattern='.*[\w]+.*'
+          required
+          maxLength={100} />
 
-      <InputField
-        label={R.strings.subject}
-        name='subject'
-        value={subject}
-        onChange={onChange}
-        readOnly={saving}
-        pattern='.*[\w]+.*'
-        required
-        maxLength={100}
-        dataListItems={[
-          R.strings.actionAndAdventure,
-          R.strings.biography,
-          R.strings.fiction,
-          R.strings.romance,
-          R.strings.terror
-        ]} />
+        <InputField
+          label={R.strings.subject}
+          name='subject'
+          value={subject}
+          onChange={onChange}
+          readOnly={saving}
+          pattern='.*[\w]+.*'
+          required
+          maxLength={100}
+          dataListItems={[
+            R.strings.actionAndAdventure,
+            R.strings.biography,
+            R.strings.fiction,
+            R.strings.romance,
+            R.strings.terror
+          ]} />
 
-      <InputField
-        label={R.strings.length}
-        name='length'
-        value={length}
-        onChange={onChange}
-        readOnly={saving}
-        type='number'
-        min={0} />
+        <InputField
+          label={R.strings.length}
+          name='length'
+          value={length}
+          onChange={onChange}
+          readOnly={saving}
+          type='number'
+          min={0} />
 
-      <InputField
-        label={R.strings.publicationYear}
-        name='publicationYear'
-        value={publicationYear}
-        onChange={onChange}
-        readOnly={saving}
-        type='number'
-        max={9999} />
+        <InputField
+          label={R.strings.publicationYear}
+          name='publicationYear'
+          value={publicationYear}
+          onChange={onChange}
+          readOnly={saving}
+          type='number'
+          max={9999} />
 
-      <InputField
-        label={R.strings.publisher}
-        name='publisher'
-        value={publisher}
-        onChange={onChange}
-        readOnly={saving}
-        pattern='.*[\w]+.*'
-        maxLength={100} />
+        <InputField
+          label={R.strings.publisher}
+          name='publisher'
+          value={publisher}
+          onChange={onChange}
+          readOnly={saving}
+          pattern='.*[\w]+.*'
+          maxLength={100} />
 
-      <InputField
-        label={R.strings.isbn}
-        name='isbn'
-        value={isbn}
-        onChange={onChange}
-        readOnly={saving}
-        pattern='.*[\w]+.*'
-        maxLength={100} />
+        <InputField
+          label={R.strings.isbn}
+          name='isbn'
+          value={isbn}
+          onChange={onChange}
+          readOnly={saving}
+          pattern='.*[\w]+.*'
+          maxLength={100} />
 
-      <InputField
-        type='textarea'
-        label={R.strings.additionalInfo}
-        name='additionalInfo'
-        value={additionalInfo}
-        onChange={onChange}
-        readOnly={saving}
-        pattern='.*[\w]+.*' />
+        <InputField
+          type='textarea'
+          label={R.strings.additionalInfo}
+          name='additionalInfo'
+          value={additionalInfo}
+          onChange={onChange}
+          readOnly={saving}
+          pattern='.*[\w]+.*' />
 
-      <div>
-        <InputButton type='submit' text={saving ? (`${R.strings.saving}...`) : R.strings.saveBook} disabled={saving} />
-      </div>
-    </form>
-  </div>
-)
+        <div>
+          <InputButton type='submit' text={saving ? (`${R.strings.saving}...`) : R.strings.saveBook} disabled={saving} />
+        </div>
+      </form>
+    </div>
+  )
 
 BookForm.propTypes = {
   R: PropTypes.object.isRequired,

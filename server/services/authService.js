@@ -10,11 +10,11 @@ const signin = async (provider, token) => {
     switch (provider) {
       case 'google':
         userData = await fetchGoogleUser(token)
-        break;
+        break
 
       case 'facebook':
         userData = await fetchFacebookUser(token)
-        break;
+        break
     }
 
     const user = await findOrCreateUser(userData)
@@ -36,8 +36,8 @@ const fetchGoogleUser = async (token) => {
   const client = new OAuth2Client(clientId)
 
   const ticket = await client.verifyIdToken({
-      idToken: token,
-      audience: clientId,
+    idToken: token,
+    audience: clientId
   })
 
   const payload = ticket.getPayload()

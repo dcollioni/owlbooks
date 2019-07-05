@@ -14,17 +14,16 @@ const App = ({ children, user }) => {
         {user &&
           <span className='user'>
             <Link className='wrapper' to='/settings'>
-              <span className='picture' style={{backgroundImage: `url(${user.picture})`}}></span>
+              <span className='picture' style={{ backgroundImage: `url(${user.picture})` }} />
               <span className='name'>{user.name}</span>
             </Link>
           </span>
         }
       </header>
-      <section className="content">
+      <section className='content'>
         {children}
       </section>
-      <footer>
-      </footer>
+      <footer />
       <ToastContainer />
     </main>
   )

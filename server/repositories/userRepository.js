@@ -5,7 +5,7 @@ const findByProvider = (provider, externalId) => {
 }
 
 const insert = (userData) => {
-  const user = new User({...userData})
+  const user = new User({ ...userData })
   return user.save()
 }
 
