@@ -16,6 +16,8 @@ class BookListContainer extends Component {
       hasNextPage: true,
       nextPage: 1
     }
+
+    this.loadMore = this.loadMore.bind(this)
   }
 
   async loadMore () {
