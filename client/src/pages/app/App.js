@@ -9,7 +9,10 @@ const App = ({ children, user }) => {
     <main className={`app ${!user ? 'unauthorized' : ''}`}>
       <header className='app-header'>
         <h1 className='app-title'>
-          <Link to='/'>owlbooks</Link>
+          <Link to='/'>
+            owlbooks
+            <span>beta</span>
+          </Link>
         </h1>
         {user &&
           <span className='user'>
