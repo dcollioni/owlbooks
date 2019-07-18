@@ -1,3 +1,18 @@
+#book-list header h2 {
+  margin-bottom: 4px;
+}
+#book-list header h2 span {
+  color: #888888;
+  font-size: 12px;
+  font-weight: normal;
+  margin-left: 10px;
+}
+#book-list header .MuiLinearProgress-colorPrimary {
+  background-color: #d6d6d6;
+}
+#book-list header .MuiLinearProgress-barColorPrimary {
+  background-color: #9c27b0;
+}
 #book-list .book-list {
   margin: 20px 0;
 }
