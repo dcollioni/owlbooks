@@ -7,9 +7,13 @@
 
       span {
         color: @color-text-secondary;
-        font-size: 12px;
+        font-size: 10px;
         font-weight: normal;
         margin-left: 10px;
+
+        @media screen and (min-width: @phone-width) {
+          font-size: 12px;
+        }
       }
     }
 
