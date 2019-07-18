@@ -9,8 +9,11 @@ import './BookList.css'
 const BookList = ({ R, books, hasNextPage, loadBooks, listProgress }) => (
   <div id='book-list'>
     <header>
-      <h2>{R.strings.yourLibrary}</h2>
-      <LinearProgress variant="determinate" value={listProgress} />
+      <h2>
+        {R.strings.yourLibrary}
+        <span>({listProgress} / 100)</span>
+      </h2>
+      <LinearProgress variant='determinate' value={listProgress} />
     </header>
     <InfiniteScroll className='book-list' pageStart={1} hasMore={hasNextPage} loadMore={loadBooks} loader={<ListLoader key={0} />}>
       {
@@ -21,8 +24,9 @@ const BookList = ({ R, books, hasNextPage, loadBooks, listProgress }) => (
           )
       }
     </InfiniteScroll>
-    <FloatingButton icon='add' url='/books/new' title={R.strings.addNewBook} />
-
+    {listProgress < 100 &&
+      <FloatingButton icon='add' url='/books/new' title={R.strings.addNewBook} />
+    }
   </div>
 )
 

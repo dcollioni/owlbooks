@@ -34,7 +34,7 @@ class BookListContainer extends Component {
 
   render () {
     return (
-      <BookList {...this.props} {...this.state} loadBooks={this.loadBooks}/>
+      <BookList {...this.props} {...this.state} loadBooks={this.loadBooks} />
     )
   }
 }
