@@ -46,5 +46,9 @@
   "language": "Idioma",
   "english": "Inglês",
   "portuguese": "Português (BR)",
-  "addYourFirstBook": "Adicione seu primeiro livro"
+  "addYourFirstBook": "Adicione seu primeiro livro",
+  "bySigningInYouAgreeWith": "Ao conectar-se você concorda com os",
+  "termsAndConditions": "Termos e Condições",
+  "andThe": "e as",
+  "privacyPolicy": "Políticas de Privacidade"
 }

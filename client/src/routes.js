@@ -16,6 +16,8 @@ import BookListContainer from './pages/bookList/BookListContainer'
 import BookFormContainer from './pages/bookForm/BookFormContainer'
 import SigninContainer from './pages/signin/SigninContainer'
 import SettingsContainer from './pages/settings/SettingsContainer'
+import TermsOfUse from './pages/static/TermsOfUse'
+import PrivacyPolicy from './pages/static/PrivacyPolicy'
 
 const routes = (
   <Provider store={store}>
@@ -24,6 +26,8 @@ const routes = (
         <AppContainer>
           <Switch>
             <Route path='/signin' component={SigninContainer} exact />
+            <Route path='/termsOfUse' component={TermsOfUse} exact />
+            <Route path='/privacyPolicy' component={PrivacyPolicy} exact />
             <AuthorizedRoute path='/' component={BookListContainer} exact />
             <AuthorizedRoute path='/books/:id' component={BookFormContainer} exact />
             <AuthorizedRoute path='/settings' component={SettingsContainer} exact />
