@@ -39,69 +39,27 @@
   margin-top: -1px;
   position: absolute;
 }
-#signin form {
-  display: grid;
-  grid-gap: 15px;
-  margin: 20px 0 0 0;
+#signin footer {
+  margin-top: 30px;
 }
-#signin form :nth-child(3) {
-  text-align: right;
-}
-#signin form :nth-child(4) {
+#signin footer p {
+  color: #888888;
+  font-size: 15px;
   text-align: center;
 }
-#signin form input {
-  background-color: #fbfbfb;
-}
-#signin form button {
-  margin-top: 10px;
-}
-#signin form a {
+#signin footer p a {
   color: #9c27b0;
   font-weight: bold;
-  font-size: 15px;
-  text-decoration: none;
 }
 @media screen and (min-width: 375px) {
   #signin {
     max-width: 450px;
     padding: 40px;
   }
-  #signin form {
-    grid-template-columns: 1fr 1fr;
-  }
-  #signin form :nth-child(1),
-  #signin form :nth-child(2) {
-    grid-column: span 2;
-  }
-  #signin form :nth-child(3) {
-    order: 4;
-  }
-  #signin form :nth-child(4) {
-    text-align: left;
-  }
-  #signin form button {
-    max-width: 150px;
-  }
-  #signin form a {
-    display: inline-block;
-    font-size: 16px;
-    padding-top: 20px;
-  }
 }
 @media screen and (min-width: 1280px) {
   #signin {
     margin-top: 40px;
-    /* max-width: 650px; */
     padding: 40px;
-  }
-  #signin form {
-    grid-gap: 25px;
-  }
-  #signin form button {
-    max-width: 180px;
-  }
-  #signin form a {
-    font-size: 17px;
   }
 }

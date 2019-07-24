@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import './Signin.css'
 import { GoogleLogin } from 'react-google-login'
 import FacebookLogin from 'react-facebook-login'
+import { Link } from 'react-router-dom'
 
 const Signin = ({ R, onGoogleSignInSuccess, onGoogleSignInFailure, onFacebookSignInSuccess, onFacebookSignInFailure }) => {
   return (
@@ -28,6 +29,15 @@ const Signin = ({ R, onGoogleSignInSuccess, onGoogleSignInFailure, onFacebookSig
           callback={onFacebookSignInSuccess}
           onFailure={onFacebookSignInFailure} />
       </div>
+
+      <footer>
+        <p>
+          {R.strings.bySigningInYouAgreeWith}&nbsp;
+          <Link to='/termsOfUse'>{R.strings.termsAndConditions}</Link>&nbsp;
+          {R.strings.andThe}&nbsp;
+          <Link to='/privacyPolicy'>{R.strings.privacyPolicy}</Link>.
+        </p>
+      </footer>
     </div>
   )
 }
