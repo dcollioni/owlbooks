@@ -37,7 +37,7 @@
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "lint": "standard",
     "pretest": "npm run lint",
-    "test": "nyc --reporter=html mocha --recursive --timeout=3000"
+    "test": "nyc --reporter=html mocha --recursive --timeout=30000"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
