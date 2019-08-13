@@ -1,7 +1,7 @@
 const userRepository = require('./../repositories/userRepository')
-const { OAuth2Client } = require('google-auth-library')
-const FB = require('fb')
-const jwt = require('jsonwebtoken')
+const facebookService = require('./facebookService')
+const googleService = require('./googleService')
+const jwtService = require('./jwtService')
 
 const signin = async (provider, token) => {
   try {
@@ -17,7 +17,7 @@ const signin = async (provider, token) => {
         break
     }
 
-    const user = await findOrCreateUser(userData)
+    const user = await createOrUpdateUser(userData)
     const jwt = generateJwt(user)
 
     return {
@@ -32,64 +32,48 @@ const signin = async (provider, token) => {
 }
 
 const fetchGoogleUser = async (token) => {
-  const clientId = process.env.GOOGLE_CLIENT_ID
-  const client = new OAuth2Client(clientId)
-
-  const ticket = await client.verifyIdToken({
-    idToken: token,
-    audience: clientId
-  })
-
-  const payload = ticket.getPayload()
+  const googleUser = await googleService.fetchUser(token)
 
   return {
     provider: 'google',
-    externalId: payload.sub,
-    name: payload.name,
-    firstName: payload.given_name,
-    lastName: payload.family_name,
-    email: payload.email,
-    picture: payload.picture,
-    locale: payload.locale
+    externalId: googleUser.sub,
+    name: googleUser.name,
+    firstName: googleUser.given_name,
+    lastName: googleUser.family_name,
+    email: googleUser.email,
+    picture: googleUser.picture,
+    locale: googleUser.locale
   }
 }
 
 const fetchFacebookUser = async (token) => {
-  return new Promise(resolve => {
-    const fb = new FB.Facebook({
-      appId: process.env.FACEBOOK_APP_ID,
-      appSecret: process.env.FACEBOOK_APP_SECRET,
-      version: 'v3.3'
-    })
+  const fbUser = await facebookService.fetchUser(token)
 
-    fb.setAccessToken(token)
-
-    fb.api('/me?fields=id,name,email,picture,first_name,last_name,location', (response) => {
-      resolve({
-        provider: 'facebook',
-        externalId: response.id,
-        name: response.name,
-        firstName: response.first_name,
-        lastName: response.last_name,
-        email: response.email,
-        picture: response.picture && response.picture.data && response.picture.data.url,
-        locale: response.location
-      })
-    })
-  })
+  return {
+    provider: 'facebook',
+    externalId: fbUser.id,
+    name: fbUser.name,
+    firstName: fbUser.first_name,
+    lastName: fbUser.last_name,
+    email: fbUser.email,
+    picture: fbUser.picture && fbUser.picture.data && fbUser.picture.data.url,
+    locale: fbUser.location
+  }
 }
 
 const generateJwt = (user) => {
-  const privateKey = process.env.JWT_PRIVATE_KEY
-  return jwt.sign(user.toObject(), privateKey, { expiresIn: '90d' })
+  const userObject = (typeof user.toObject === 'function') ? user.toObject() : user
+  return jwtService.generate(userObject)
 }
 
-const findOrCreateUser = async (userData) => {
+const createOrUpdateUser = async (userData) => {
   const { provider, externalId } = userData
   let user = await userRepository.findByProvider(provider, externalId)
 
   if (!user) {
     user = await userRepository.insert(userData)
+  } else {
+    user = await userRepository.update(user._id, userData)
   }
 
   return user

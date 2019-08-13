@@ -1,5 +1,5 @@
 const { UNAUTHORIZED } = require('./../enums/HttpStatus')
-const jwt = require('jsonwebtoken')
+const jwtService = require('./../services/jwtService')
 
 const authenticator = (req, res, next) => {
   const auth = req.header('authorization')
@@ -13,7 +13,7 @@ const authenticator = (req, res, next) => {
   }
 
   try {
-    req.user = jwt.verify(token, process.env.JWT_PRIVATE_KEY)
+    req.user = jwtService.verify(token)
     req.userId = req.user._id
   } catch (e) {
     console.error(`authenticator error ${e}`)

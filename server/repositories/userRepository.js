@@ -9,7 +9,19 @@ const insert = (userData) => {
   return user.save()
 }
 
+const update = async (id, userData) => {
+  const user = await User.findById(id)
+
+  if (!user) {
+    throw new Error('not found')
+  }
+
+  Object.assign(user, userData)
+  return user.save()
+}
+
 module.exports = {
   findByProvider,
-  insert
+  insert,
+  update
 }
