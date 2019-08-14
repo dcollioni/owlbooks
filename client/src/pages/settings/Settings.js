@@ -17,7 +17,9 @@ const Settings = ({ R, user, settings, onClickSignOut, onClickLanguage }) => (
             {R.strings.signedInWith} <span>{user.provider}</span>
           </p>
         </div>
-        <InputButton text={R.strings.signOut} onClick={onClickSignOut} />
+        <div>
+          <InputButton text={R.strings.signOut} onClick={onClickSignOut} />
+        </div>
       </div>
       <div className='language-info'>
         <h3>{R.strings.language}</h3>
